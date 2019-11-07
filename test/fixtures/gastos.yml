@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fecha_compra: 2019-11-02
+  motivo: MyString
+  descripcion: MyString
+  costo: 1.5
+
+two:
+  fecha_compra: 2019-11-02
+  motivo: MyString
+  descripcion: MyString
+  costo: 1.5

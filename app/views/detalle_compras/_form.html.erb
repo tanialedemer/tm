@@ -1,0 +1,58 @@
+<div class="modal-body">
+<%= form_for([@compra, @detalle_compra]) do |form| %>
+  <% if @detalle_compra.errors.any? %>
+    <div id="error_explanation">
+  <% end %>
+
+  <div class="row">
+    <div class="col-xs-5">
+      <div class="form-group">
+          <%= form.label :repuesto_servicio_id, class: "sr-only" %>
+          <%= form.text_field :repuesto_servicio_id, placeholder: "Artículo", class: "form-control", value: nil %>
+          <%#= form.hidden_field :repuesto_servicio_id %>
+          <%#= hidden_field_tag :descripcion  %>
+      </div>
+    </div>
+    <div class="col-xl-2">
+      <div class="form-group">
+          <%= form.label :cantidad, class: "sr-only" %>
+          <%= form.text_field :cantidad, placeholder: "Cant.", class: "form-control" %>
+      </div>
+    </div>
+    <div class="col-xs-2">
+      <div class="form-group">
+          <%= form.label :precio_unitario, class: "sr-only" %>
+          <%= form.text_field :precio_unitario, placeholder: "Precio Unitario", class: "form-control" %>
+      </div>
+    </div>
+    <div class="col-xs-2">
+      <div class="form-group">
+          <%= form.label :precio_venta, class: "sr-only" %>
+          <%= form.text_field :precio_venta, placeholder: "Precio Venta", class: "form-control" %>
+      </div>
+    </div>
+    <div class="col-xs-2">
+      <div class="form-group">
+          <%= form.label :iva, class: "sr-only" %>
+          <%= form.text_field :iva, placeholder: "IVA", class: "form-control" %>
+      </div>
+    </div>
+  <div class="col-xs-2">
+    <div class="form-group">
+        <%= form.label :subtotal, class: "sr-only" %>
+        <%= form.text_field :subtotal, placeholder: "0", class: "form-control", disabled: true %>
+    </div>
+  </div>
+</div>
+
+  <%= form.submit "Aceptar", class: "btn btn-primary" %>
+
+  </div>
+  <div class="modal-footer">
+  <%= link_to "Cancelar", "#", class: "btn btn-danger", "data-dismiss": "modal" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

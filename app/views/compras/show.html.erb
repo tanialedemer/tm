@@ -1,0 +1,81 @@
+<div class="container-fluid" id="compra-form">
+  <div class="row">
+
+    <div class="panel-body">
+    <div class="row">
+             <div class="col-xs-5 col-md-4">
+               <div class="form-group">
+                 <div class="col-xs-6 col-md-4 text-left">
+                   <strong>Número de Factura:</strong>
+                   <%= @compra.num_fact %>
+                 </div>
+               </div>
+             </div>
+             <div class="col-xs-6 col-xs-offset-1 col-md-4 col-md-offset-4">
+               <div class="form-group">
+                 <div class="col-xs-4 col-md-4 text-right">
+                   <strong>Fecha:</strong>
+                   <%= @compra.fecha %>
+                 </div>
+               </div>
+             </div>
+             </div>
+             <hr>
+             <br>
+             <div class="col-xs-6 col-xs-offset-1 col-md-4 col-md-offset-4">
+               <div class="form-group">
+                 <div class="col-xs-4 col-md-4 text-right">
+                   <strong>Proveedor:</strong>
+                   <%= @compra.proveedor_id %>
+                 </div>
+               </div>
+             </div>
+             </div>
+             <hr>
+             <br>
+             <div class="col-xs-6 col-xs-offset-1 col-md-4 col-md-offset-4">
+               <div class="form-group">
+                 <div class="col-xs-4 col-md-4 text-right">
+                   <strong>Tipo factura:</strong>
+                   <%= @compra.tipo_factura_id %>
+                 </div>
+               </div>
+             </div>
+             <strong>Estado:</strong>
+             <%= @compra.estado %>
+             </div>
+
+
+    <div class="filed">
+      <div class="panel-body" id="sale-details">
+        <%= (@compra.detalle_compras.count > 0) ? render(partial: 'detalle_compra', locals: { compra: @compra, show_actions: true }) : 'No hay detalles cargados' %>
+      </div>
+      <%= render "detalle_compras/form" %>
+    </div>
+
+    <footer>
+      <div class="container-fluid">
+
+      <%= form_for([@compra, @detalle_compra]) do |form| %>
+      <div class="field">
+        <%= form.label :total %>
+        <%= form.text_field :total %>
+      </div>
+
+      <div class="field">
+        <%= form.label :pago %>
+        <%= form.text_field :pago %>
+      </div>
+
+      <div class="field">
+        <%= form.label :saldo %>
+        <%= form.text_field :saldo %>
+      </div>
+
+  </div>
+
+      <%end%>
+    </footer>
+
+    <%= link_to 'Edit', edit_compra_path(@compra) %> |
+    <%= link_to 'Back', compras_path %>

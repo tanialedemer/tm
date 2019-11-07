@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<h2>Detalle Compras</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+
+      <th>Repuesto servicio</th>
+      <th>Cantidad</th>
+      <th>Precio unitario</th>
+      <th>Precio venta</th>
+      <th>Iva</th>
+      <th>Subtotal</th>
+      <th>Total</th>
+      <th>Saldo</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @compra.detalle_compras.each do |detalle_compra| %>
+      <tr>
+
+        <td><%= detalle_compra.repuesto_servicio_id %></td>
+        <td><%= detalle_compra.cantidad %></td>
+        <td><%= detalle_compra.precio_unitario %></td>
+        <td><%= detalle_compra.precio_venta %></td>
+        <td><%= detalle_compra.iva %></td>
+        <td><%= detalle_compra.subtotal %></td>    
+        <td><%= detalle_compra.total %></td>
+        <td><%= detalle_compra.saldo %></td>
+        <td><%= link_to 'Edit', edit_compra_detalle_compra_path(detalle_compra) %></td>
+        <td><%#= link_to 'Destroy', @detalle_compra, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

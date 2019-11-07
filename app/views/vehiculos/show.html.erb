@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Modelo:</strong>
+  <%= @vehiculo.modelo %>
+</p>
+
+<p>
+  <strong>Color:</strong>
+  <%= @vehiculo.color %>
+</p>
+
+<p>
+  <strong>Matricula:</strong>
+  <%= @vehiculo.matricula %>
+</p>
+
+<p>
+  <strong>Marca:</strong>
+  <%= @vehiculo.marca %>
+</p>
+
+<p>
+  <strong>Km:</strong>
+  <%= @vehiculo.km %>
+</p>
+
+<p>
+  <strong>Chasis:</strong>
+  <%= @vehiculo.chasis %>
+</p>
+
+<p>
+  <strong>Year fab:</strong>
+  <%= @vehiculo.year_fab %>
+</p>
+
+<p>
+  <strong>Cliente:</strong>
+  <%= @vehiculo.cliente_id %>
+</p>
+
+<%= link_to 'Edit', edit_vehiculo_path(@vehiculo) %> |
+<%= link_to 'Back', vehiculos_path %>

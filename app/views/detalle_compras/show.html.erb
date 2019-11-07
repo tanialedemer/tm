@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Compra:</strong>
+  <%= @detalle_compra.compra_id %>
+</p>
+
+<p>
+  <strong>Repuesto servicio:</strong>
+  <%= @detalle_compra.repuesto_servicio_id %>
+</p>
+
+<p>
+  <strong>Cantidad:</strong>
+  <%= @detalle_compra.cantidad %>
+</p>
+
+<p>
+  <strong>Subtotal:</strong>
+  <%= @detalle_compra.subtotal %>
+</p>
+
+<p>
+  <strong>Iva:</strong>
+  <%= @detalle_compra.iva %>
+</p>
+
+<p>
+  <strong>Precio unitario:</strong>
+  <%= @detalle_compra.precio_unitario %>
+</p>
+
+<p>
+  <strong>Precio venta:</strong>
+  <%= @detalle_compra.precio_venta %>
+</p>
+
+<p>
+  <strong>Total:</strong>
+  <%= @detalle_compra.total %>
+</p>
+
+<p>
+  <strong>Pago:</strong>
+  <%= @detalle_compra.pago %>
+</p>
+
+<p>
+  <strong>Saldo:</strong>
+  <%= @detalle_compra.saldo %>
+</p>
+
+<%= link_to 'Edit', edit_detalle_compra_path(@detalle_compra) %> |
+<%= link_to 'Back', detalle_compras_path %>

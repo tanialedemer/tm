@@ -1,0 +1,37 @@
+<%= form_with(model: orden_trabajo, local: true) do |form| %>
+  <% if orden_trabajo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(orden_trabajo.errors.count, "error") %> prohibited this orden_trabajo from being saved:</h2>
+
+      <ul>
+        <% orden_trabajo.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :descripcion %>
+    <%= form.text_area :descripcion %>
+  </div>
+
+  <div class="field">
+    <%= form.label :mecanico_id %>
+    <%= form.text_field :mecanico_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cliente_id %>
+    <%= form.text_field :cliente_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :num_orden %>
+    <%= form.number_field :num_orden %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

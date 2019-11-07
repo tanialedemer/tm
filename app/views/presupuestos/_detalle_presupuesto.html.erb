@@ -1,0 +1,35 @@
+
+<h2>Detalle Orden Presupuestos</h2>
+
+<table class="table hover">
+  <thead>
+    <tr>
+      <th>Repuesto servicio</th>
+      <th>Cantidad</th>
+      <th>Precio unitario</th>
+      <th>Subtotal</th>
+      <th>Total</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @presupuesto.detalle_orden_presupuestos.each do |detalle_orden_presupuesto| %>
+      <tr>
+        
+        <td><%= detalle_orden_presupuesto.repuesto_servicio_id %></td>
+        <td><%= detalle_orden_presupuesto.cantidad %></td>
+        <td><%= detalle_orden_presupuesto.precio_unitario %></td>
+        <td><%= detalle_orden_presupuesto.subtotal %></td>
+        <td><%= detalle_orden_presupuesto.total %></td>
+        <td><%#= link_to 'Show', show_presupuesto_detalle_orden_presupuesto %></td>
+        <td><%#= link_to 'Edit', edit_detalle_orden_presupuesto_path(detalle_orden_presupuesto) %></td>
+        <td><%#= link_to 'Destroy', detalle_orden_presupuesto, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%#= link_to 'New Detalle Orden Presupuesto', new_detalle_orden_presupuesto_path %>

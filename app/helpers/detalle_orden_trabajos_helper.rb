@@ -1,0 +1,2 @@
+module DetalleOrdenTrabajosHelper
+end

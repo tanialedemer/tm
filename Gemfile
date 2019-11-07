@@ -58,3 +58,24 @@ gem 'devise-i18n', '~> 1.8', '>= 1.8.2'
 gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
 #devise
 gem 'devise-bootstrap-views', '~> 1.1'
+gem 'devise', '~> 4.7', '>= 4.7.1'
+
+#otras
+gem 'bootstrap-generators', '~> 3.3', '>= 3.3.4'
+gem "therubyracer", platforms: :ruby
+gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+gem "twitter-bootstrap-rails"
+#anidados
+# gem 'nested_form', '~> 0.3.2'
+# gem 'simple_form', '~> 5.0', '>= 5.0.1'
+# Annotate
+gem 'annotate'
+
+# Front-end
+gem 'bower-rails'
+
+# Nested forms
+gem 'cocoon'
+
+# Modal
+gem 'bootstrap-modal-rails'

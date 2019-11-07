@@ -1,0 +1,25 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  compra: one
+  repuesto_servicio: one
+  cantidad: 1.5
+  subtotal: 1.5
+  iva: 1.5
+  precio_unitario: 1.5
+  precio_venta: 1.5
+  total: 1.5
+  pago: 1.5
+  saldo: 1.5
+
+two:
+  compra: two
+  repuesto_servicio: two
+  cantidad: 1.5
+  subtotal: 1.5
+  iva: 1.5
+  precio_unitario: 1.5
+  precio_venta: 1.5
+  total: 1.5
+  pago: 1.5
+  saldo: 1.5

@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  compra: one
+  proveedor: one
+  fecha: 2019-11-03
+  monto_pago: 1.5
+
+two:
+  compra: two
+  proveedor: two
+  fecha: 2019-11-03
+  monto_pago: 1.5

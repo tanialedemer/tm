@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Cantidad:</strong>
+  <%= @payment_detail.cantidad %>
+</p>
+
+<p>
+  <strong>Subtotal:</strong>
+  <%= @payment_detail.subtotal %>
+</p>
+
+<p>
+  <strong>Payment:</strong>
+  <%= @payment_detail.payment_id %>
+</p>
+
+<p>
+  <strong>Repuesto servicio:</strong>
+  <%= @payment_detail.repuesto_servicio_id %>
+</p>
+
+<p>
+  <strong>Precio unitario:</strong>
+  <%= @payment_detail.precio_unitario %>
+</p>
+
+<p>
+  <strong>Total:</strong>
+  <%= @payment_detail.total %>
+</p>
+
+<p>
+  <strong>Saldo:</strong>
+  <%= @payment_detail.saldo %>
+</p>
+
+<p>
+  <strong>Precio venta:</strong>
+  <%= @payment_detail.precio_venta %>
+</p>
+
+<p>
+  <strong>Pago:</strong>
+  <%= @payment_detail.pago %>
+</p>
+
+<%= link_to 'Edit', edit_payment_detail_path(@payment_detail) %> |
+<%= link_to 'Back', payment_details_path %>

@@ -1,0 +1,27 @@
+<%= form_with(model: mecanico, local: true) do |form| %>
+  <% if mecanico.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(mecanico.errors.count, "error") %> prohibited this mecanico from being saved:</h2>
+
+      <ul>
+        <% mecanico.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :especialidad %>
+    <%= form.text_field :especialidad %>
+  </div>
+
+  <div class="field">
+    <%= form.label :empleado_id %>
+    <%= form.text_field :empleado_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

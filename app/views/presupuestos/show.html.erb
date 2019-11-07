@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Número Presupuesto:</strong>
+  <%= @presupuesto.id %>
+</p>
+
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @presupuesto.descripcion %>
+</p>
+
+<p>
+  <strong>Cliente:</strong>
+  <%= @presupuesto.cliente_id %>
+</p>
+
+<div class="filed">
+  <div class="panel-body" id="sale-details">
+    <%= (@presupuesto.detalle_orden_presupuestos.count > 0) ? render(partial: 'detalle_presupuesto', locals: { presupuesto: @presupuesto, show_actions: true }) : 'No hay detalles cargados' %>
+  </div>
+  <%= render "detalle_orden_presupuestos/form" %>
+</div>
+
+
+<%= link_to 'Edit', edit_presupuesto_path(@presupuesto) %> |
+<%= link_to 'Back', presupuestos_path %>

@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Codigo:</strong>
+  <%= @repuesto_servicio.codigo %>
+</p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @repuesto_servicio.descripcion %>
+</p>
+
+<p>
+  <strong>Stock:</strong>
+  <%= @repuesto_servicio.stock %>
+</p>
+
+<p>
+  <strong>Costo:</strong>
+  <%= @repuesto_servicio.costo %>
+</p>
+
+<p>
+  <strong>Precio venta:</strong>
+  <%= @repuesto_servicio.precio_venta %>
+</p>
+
+<p>
+  <strong>Categoria:</strong>
+  <%= @repuesto_servicio.categoria %>
+</p>
+
+<%= link_to 'Edit', edit_repuesto_servicio_path(@repuesto_servicio) %> |
+<%= link_to 'Back', repuesto_servicios_path %>

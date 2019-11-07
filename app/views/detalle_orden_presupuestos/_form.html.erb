@@ -1,0 +1,53 @@
+<%= form_for([@presupuesto, @detalle_orden_presupuesto]) do |form| %>
+  <% if @detalle_orden_presupuesto.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(detalle_orden_presupuesto.errors.count, "error") %> prohibited this detalle_orden_presupuesto from being saved:</h2>
+
+      <ul>
+        <% detalle_orden_presupuesto.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="row">
+    <div class="col-xs-5">
+      <div class="form-group">
+          <%= form.label :repuesto_servicio_id, class: "sr-only" %>
+          <%= form.text_field :repuesto_servicio_id, placeholder: "Artículo", class: "form-control", value: nil %>
+          <%#= form.hidden_field :repuesto_servicio_id %>
+          <%#= hidden_field_tag :descripcion  %>
+      </div>
+    </div>
+
+    <div class="col-xl-2">
+      <div class="form-group">
+          <%= form.label :cantidad, class: "sr-only" %>
+          <%= form.text_field :cantidad, placeholder: "Cant.", class: "form-control" %>
+      </div>
+    </div>
+    <div class="col-xs-2">
+      <div class="form-group">
+          <%= form.label :precio_unitario, class: "sr-only" %>
+          <%= form.text_field :precio_unitario, placeholder: "Precio", class: "form-control" %>
+      </div>
+    </div>
+
+  <div class="col-xs-2">
+    <div class="form-group">
+        <%= form.label :subtotal, class: "sr-only" %>
+        <%= form.text_field :subtotal, placeholder: "0", class: "form-control", disabled: true %>
+    </div>
+  </div>
+  <div class="col-xs-2">
+    <div class="form-group">
+        <%= form.label :total, class: "sr-only" %>
+        <%= form.text_field :total, placeholder: "0", class: "form-control", disabled: true %>
+    </div>
+  </div>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

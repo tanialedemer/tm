@@ -1,0 +1,25 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre: MyString
+  apellido: MyString
+  fecha_nac: 2019-11-02
+  documento: MyString
+  telefono: MyString
+  especialidad: MyString
+  fecha_contratacion: 2019-11-02
+  salario: 1.5
+  usuario: one
+  direccion: MyText
+
+two:
+  nombre: MyString
+  apellido: MyString
+  fecha_nac: 2019-11-02
+  documento: MyString
+  telefono: MyString
+  especialidad: MyString
+  fecha_contratacion: 2019-11-02
+  salario: 1.5
+  usuario: two
+  direccion: MyText

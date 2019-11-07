@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  orden_trabajo: one
+  presupuesto: one
+  repuesto_servicio: one
+  cantidad: 1.5
+  precio_unitario: 1.5
+  subtotal: 1.5
+  total: 1.5
+
+two:
+  orden_trabajo: two
+  presupuesto: two
+  repuesto_servicio: two
+  cantidad: 1.5
+  precio_unitario: 1.5
+  subtotal: 1.5
+  total: 1.5

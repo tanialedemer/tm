@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fecha: 2019-11-03
+  proveedor: one
+  tipo_factura: one
+  num_fact: 1
+  estado: MyString
+
+two:
+  fecha: 2019-11-03
+  proveedor: two
+  tipo_factura: two
+  num_fact: 1
+  estado: MyString

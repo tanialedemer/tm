@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Orden trabajo:</strong>
+  <%= @detalle_orden_trabajo.orden_trabajo_id %>
+</p>
+
+<p>
+  <strong>Repuesto servicio:</strong>
+  <%= @detalle_orden_trabajo.repuesto_servicio_id %>
+</p>
+
+<p>
+  <strong>Cantidad:</strong>
+  <%= @detalle_orden_trabajo.cantidad %>
+</p>
+
+<p>
+  <strong>Precio venta:</strong>
+  <%= @detalle_orden_trabajo.precio_venta %>
+</p>
+
+<p>
+  <strong>Subtotal:</strong>
+  <%= @detalle_orden_trabajo.subtotal %>
+</p>
+
+<p>
+  <strong>Total:</strong>
+  <%= @detalle_orden_trabajo.total %>
+</p>
+
+<%= link_to 'Edit', edit_detalle_orden_trabajo_path(@detalle_orden_trabajo) %> |
+<%= link_to 'Back', detalle_orden_trabajos_path %>

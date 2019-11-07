@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Orden trabajo:</strong>
+  <%= @detalle_orden_presupuesto.orden_trabajo_id %>
+</p>
+
+<p>
+  <strong>Presupuesto:</strong>
+  <%= @detalle_orden_presupuesto.presupuesto_id %>
+</p>
+
+<p>
+  <strong>Repuesto servicio:</strong>
+  <%= @detalle_orden_presupuesto.repuesto_servicio_id %>
+</p>
+
+<p>
+  <strong>Cantidad:</strong>
+  <%= @detalle_orden_presupuesto.cantidad %>
+</p>
+
+<p>
+  <strong>Precio unitario:</strong>
+  <%= @detalle_orden_presupuesto.precio_unitario %>
+</p>
+
+<p>
+  <strong>Subtotal:</strong>
+  <%= @detalle_orden_presupuesto.subtotal %>
+</p>
+
+<p>
+  <strong>Total:</strong>
+  <%= @detalle_orden_presupuesto.total %>
+</p>
+
+<%= link_to 'Edit', edit_detalle_orden_presupuesto_path(@detalle_orden_presupuesto) %> |
+<%= link_to 'Back', detalle_orden_presupuestos_path %>

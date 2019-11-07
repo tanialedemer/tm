@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tipo_factura: one
+  cliente: one
+  fecha: 2019-11-03
+  orden_trabajo: one
+  estado: MyString
+  subtotal: 1.5
+  total: 1.5
+  saldo: 1.5
+
+two:
+  tipo_factura: two
+  cliente: two
+  fecha: 2019-11-03
+  orden_trabajo: two
+  estado: MyString
+  subtotal: 1.5
+  total: 1.5
+  saldo: 1.5

@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Empleados</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Fecha nac</th>
+      <th>Documento</th>
+      <th>Telefono</th>
+      <th>Especialidad</th>
+      <th>Fecha contratacion</th>
+      <th>Salario</th>
+      <th>Usuario</th>
+      <th>Direccion</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @empleados.each do |empleado| %>
+      <tr>
+        <td><%= empleado.nombre %></td>
+        <td><%= empleado.apellido %></td>
+        <td><%= empleado.fecha_nac %></td>
+        <td><%= empleado.documento %></td>
+        <td><%= empleado.telefono %></td>
+        <td><%= empleado.especialidad %></td>
+        <td><%= empleado.fecha_contratacion %></td>
+        <td><%= empleado.salario %></td>
+        <td><%= empleado.usuario_id %></td>
+        <td><%= empleado.direccion %></td>
+        <td><%= link_to 'Show', empleado %></td>
+        <td><%= link_to 'Edit', edit_empleado_path(empleado) %></td>
+        <td><%= link_to 'Destroy', empleado, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Empleado', new_empleado_path %>

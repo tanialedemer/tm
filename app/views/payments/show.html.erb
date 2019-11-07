@@ -1,0 +1,32 @@
+<div class="container">
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Fecha:</strong>
+  <%= @payment.fecha %>
+</p>
+
+<p>
+  <strong>Proveedor:</strong>
+  <%= @payment.proveedor_id %>
+</p>
+
+<p>
+  <strong>Tipo factura:</strong>
+  <%= @payment.tipo_factura_id %>
+</p>
+
+<p>
+  <strong>Num fact:</strong>
+  <%= @payment.num_fact %>
+</p>
+
+<p>
+  <strong>Estado:</strong>
+  <%= @payment.estado %>
+</p>
+
+<%= link_to 'Edit', edit_payment_path(@payment) %> |
+<%= link_to 'Back', payments_path %>
+</div>
