@@ -1,7 +1,9 @@
+<div class="container">
+
 <%= form_with(model: repuesto_servicio, local: true) do |form| %>
   <% if repuesto_servicio.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(repuesto_servicio.errors.count, "error") %> prohibited this repuesto_servicio from being saved:</h2>
+      <%= pluralize(repuesto_servicio.errors.count, "errores") %>
 
       <ul>
         <% repuesto_servicio.errors.full_messages.each do |message| %>
@@ -10,38 +12,43 @@
       </ul>
     </div>
   <% end %>
+  <form>
+  <div class="container">
+  <div class="container center">
 
-  <div class="field">
-    <%= form.label :codigo %>
-    <%= form.text_field :codigo %>
+
+  <div class="form-group">
+    <%= form.text_field :codigo, placeholder: "Codigo", class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :descripcion %>
-    <%= form.text_area :descripcion %>
+
+  <div class="form-group">
+    <%= form.text_field :descripcion, placeholder: "Descripcion", class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :stock %>
-    <%= form.number_field :stock %>
+  <div class="form-group">
+    <%= form.number_field :stock , placeholder: "Stock", class: "form-control", type: "text", disabled: true %>
   </div>
 
-  <div class="field">
-    <%= form.label :costo %>
-    <%= form.text_field :costo %>
+  <div class="form-group">
+    <%= form.text_field :costo, placeholder: "Costo", class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :precio_venta %>
-    <%= form.text_field :precio_venta %>
+  <div class="form-group">
+    <%= form.text_field :precio_venta, placeholder: "Precio Venta", class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :categoria %>
-    <%= form.text_field :categoria %>
+    <%= form.collection_select :categoria_id, Categorium.order(:descripcion), :id, :descripcion,class: "chosen-select" %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Guardar", class: "btn btn-success form-control"  %>
   </div>
+</div>
+
+</div>
+</form>
 <% end %>
+</div>

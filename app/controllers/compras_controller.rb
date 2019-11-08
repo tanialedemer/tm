@@ -15,7 +15,11 @@ class ComprasController < ApplicationController
 
   # GET /compras/new
   def new
-    @compra = Compra.new
+    last_compra = Compra.where(estado: "confirmed").maximum('num_fact')
+    number =  (last_compra != nil) ? last_compra + 1 : 1
+    @compra = Compra.create(fecha: Date::current, num_fact: number, estado: "draft")
+    @compra.detalle_compras.build
+    params[:compra_id] = @compra.id.to_s
   end
 
   # GET /compras/1/edit

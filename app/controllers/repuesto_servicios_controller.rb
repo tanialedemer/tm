@@ -1,10 +1,24 @@
 class RepuestoServiciosController < ApplicationController
   before_action :set_repuesto_servicio, only: [:show, :edit, :update, :destroy]
+  PAGE_SIZE = 5
 
   # GET /repuesto_servicios
   # GET /repuesto_servicios.json
   def index
     @repuesto_servicios = RepuestoServicio.all
+    @page = (params[:page] || 0).to_i
+
+   if params[:keywords].present?
+     @keywords = params[:keywords]
+     @repuesto_servicios = RepuestoServicio.where("lower(descripcion) LIKE '%#{@keywords.downcase}%'").order(:descripcion)
+                    .offset(PAGE_SIZE * @page).limit(PAGE_SIZE)
+     number_of_records = RepuestoServicio.where("lower(descripcion) LIKE '%#{@keywords.downcase}%'").count
+   else
+     @repuesto_servicios = RepuestoServicio.order(:descripcion).offset(PAGE_SIZE * @page).limit(PAGE_SIZE)
+     number_of_records = RepuestoServicio.count
+   end
+   @number_of_pages = (number_of_records % PAGE_SIZE) == 0 ?
+                       number_of_records / PAGE_SIZE - 1 : number_of_records / PAGE_SIZE
   end
 
   # GET /repuesto_servicios/1

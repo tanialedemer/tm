@@ -16,13 +16,15 @@ class DetalleComprasController < ApplicationController
 
   # GET /detalle_compras/new
   def new
-    @detalle_compra = DetalleCompra.new
-    @detalle_compra.compra_id=params[:compra]
+    # @detalle_compra = DetalleCompra.new
+    # @detalle_compra.compra_id=params[:compra]
+    @detalle_compra = @compra.detalle_compras.build
     @detalle_compra.repuesto_servicio = RepuestoServicio.first
   end
 
   # GET /detalle_compras/1/edit
   def edit
+    		@detalle_compra = DetalleCompra.find(params[:id])
   end
 
   # POST /detalle_compras

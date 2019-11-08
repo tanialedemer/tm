@@ -3,8 +3,21 @@
 <p id="notice"><%= notice %></p>
 
 <h3 align="center">Repuesto Servicios</h3>
+<%# boton nuevo %>
+<div class="container-fluid" align="center">
+  <%= render partial: 'layouts/search_form', locals: { search_entity: 'items', word: "Repuesto o Servicio" } %>
+<br>
+</div>
+<br>
+<div class="boton_redirect">
+<%= render partial: "pager", locals: { keywords: @keywords, page: @page } %>
+</div>
 
-<table>
+
+<!-- lista de repuesto_servicio -->
+<div class="table-responsive-md">
+
+<table class="table table-hover">
   <thead>
     <tr>
       <th>Codigo</th>
@@ -13,7 +26,7 @@
       <th>Costo</th>
       <th>Precio venta</th>
       <th>Categoria</th>
-      <th colspan="3"></th>
+      <th colspan="2"><%= link_to 'Nuevo Repuesto o Servicio', new_repuesto_servicio_path, class: "btn btn-success" %></th>
     </tr>
   </thead>
 
@@ -26,9 +39,8 @@
         <td><%= repuesto_servicio.costo %></td>
         <td><%= repuesto_servicio.precio_venta %></td>
         <td><%= repuesto_servicio.categoria %></td>
-        <td><%= link_to 'Show', repuesto_servicio %></td>
-        <td><%= link_to 'Edit', edit_repuesto_servicio_path(repuesto_servicio) %></td>
-        <td><%= link_to 'Destroy', repuesto_servicio, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Editar', edit_repuesto_servicio_path(repuesto_servicio) , class: "btn btn-primary"  %></td>
+        <td><%= link_to 'Destroy', repuesto_servicio, method: :delete, data: { confirm: 'Está seguro?' } , class: "btn btn-danger" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -36,5 +48,4 @@
 
 <br>
 
-<%= link_to 'New Repuesto Servicio', new_repuesto_servicio_path %>
 </div>

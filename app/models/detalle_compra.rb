@@ -10,7 +10,7 @@ class DetalleCompra < ApplicationRecord
     if persisted?
       precio_unitario
     else
-      repuesto_servicio ? repuesto_servicio.precio_unitario : 0
+      repuesto_servicio ? repuesto_servicio.costo : 0
     end
   end
 
