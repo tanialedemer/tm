@@ -1,29 +1,40 @@
-<p id="notice"><%= notice %></p>
-
+<div class="center">
+<h4>Datos de Proveedor</h4>
+<div class="card" style="width: 50rem;">
+  <div class="card-body">
 <p>
-  <strong>Nombre:</strong>
-  <%= @proveedor.nombre %>
-</p>
-
-<p>
-  <strong>Direccion:</strong>
-  <%= @proveedor.direccion %>
-</p>
-
-<p>
-  <strong>Telefono:</strong>
-  <%= @proveedor.telefono %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @proveedor.email %>
-</p>
-
-<p>
+  <li class="list-group-item">
   <strong>Ruc:</strong>
-  <%= @proveedor.ruc %>
+  <%= @proveedor.ruc %> </li>
 </p>
 
-<%= link_to 'Edit', edit_proveedor_path(@proveedor) %> |
-<%= link_to 'Back', proveedors_path %>
+<p>
+  <li class="list-group-item">
+  <strong>Nombre:</strong>
+  <%= @proveedor.nombre %></li>
+</p>
+
+<p>
+  <li class="list-group-item">
+  <strong>Direccion:</strong>
+  <%= @proveedor.direccion %></li>
+</p>
+
+<p>
+  <li class="list-group-item">
+  <strong>Telefono:</strong>
+  <%= @proveedor.telefono %></li>
+</p>
+
+<p>
+  <li class="list-group-item">
+  <strong>Email:</strong>
+  <%= @proveedor.email %></li>
+</p>
+
+
+<%= link_to 'Editar', edit_proveedor_path(@proveedor), class: "btn btn-primary" %> |
+<%= link_to 'Volver', proveedors_path, class: "btn btn-success" %>
+</div>
+</div>
+</div>
