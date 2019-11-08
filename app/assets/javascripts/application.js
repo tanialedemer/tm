@@ -7,17 +7,20 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
-//= require_tree .
 //= require jquery_nested_form
 //= require jquery-readyselector
 //= require turbolinks
 //= require 'bootstrap-sass-official'
 //= require cocoon
+//= require chosen
 //= require bootstrap-modal
 //= require bootstrap-modalmanager
 //= require 'typeahead.js.js'
+//= require_tree .
 
 $(document).on('turbolinks:load', function(){
+
+  $(".chosen-select").chosen();
 
   $('form').on('click', '.remove_record', function(event){
   $(this).prev('input[type=hidden]').val('1');

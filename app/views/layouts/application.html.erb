@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Tm</title>
+    <title>Taller</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -15,12 +15,16 @@
   </head>
 
   <body>
+    <div>
+
     <%= render 'layouts/header' %>
       <div class="container">
-      <%= render 'layouts/messages' %>
-      <div class="jumbotron jumbotron-fluid">
+        <%= render 'layouts/messages' %>
+
+        <div class="jumbotron">
         <%= yield %>
       </div>
+    </div>
 
     </div>
       <%= render 'layouts/lateral' %>

@@ -18,6 +18,7 @@ class DetalleComprasController < ApplicationController
   def new
     @detalle_compra = DetalleCompra.new
     @detalle_compra.compra_id=params[:compra]
+    @detalle_compra.repuesto_servicio = RepuestoServicio.first
   end
 
   # GET /detalle_compras/1/edit
@@ -27,19 +28,29 @@ class DetalleComprasController < ApplicationController
   # POST /detalle_compras
   # POST /detalle_compras.json
   def create
-    @detalle_compra = DetalleCompra.new(detalle_compra_params)
-    @detalle_compra.compra = @compra
-    @detalle_compra.subtotal=(@detalle_compra.precio_unitario * @detalle_compra.cantidad)
 
-    respond_to do |format|
-      if @detalle_compra.save
-        format.html { redirect_to @detalle_compra.compra }
-        format.json { render :show, status: :created, location: @detalle_compra }
-      else
-        format.html { render :new }
-        format.json { render json: @detalle_compra.errors, status: :unprocessable_entity }
-      end
-    end
+    item_exists = false
+		repuesto_servicio_id = params[:detalle_compra][:repuesto_servicio_id].to_i
+		@compra.detalle_compras.each do |detail|
+			if detail.repuesto_servicio_id == repuesto_servicio_id
+				# Ya existe el item en la factura, agregar cantidad
+				item_exists = true
+				@detalle_compra = detail
+				@saved_detalle_compra = detail.id
+				break
+			end
+		end
+		if item_exists
+			@detalle_compra.cantidad += params[:detalle_compra][:cantidad].to_i
+			@detalle_compra.precio_unitario = params[:detalle_compra][:precio_unitario].to_f
+			@detalle_compra.save!
+		else
+			detalle_compra = DetalleCompra.new(detalle_compra_params)
+			@compra.detalle_compras << detalle_compra
+		end
+		@compra.save!
+    redirect_to @detalle_compra.compra
+
   end
 
   # PATCH/PUT /detalle_compras/1
@@ -59,11 +70,17 @@ class DetalleComprasController < ApplicationController
   # DELETE /detalle_compras/1
   # DELETE /detalle_compras/1.json
   def destroy
-    @detalle_compra.destroy
-    respond_to do |format|
-      format.html { redirect_to @compra, notice: 'Detalle compra was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    @detalle_compra = DetalleCompra.find(params[:id])
+		@detalle_compra.destroy
+
+		respond_to do |format|
+			format.js { render layout: false }
+		end
+    # @detalle_compra.destroy
+    # respond_to do |format|
+    #   format.html { redirect_to @compra, notice: 'Detalle compra was successfully destroyed.' }
+    #   format.json { head :no_content }
+    # end
   end
 
   private
@@ -78,6 +95,6 @@ class DetalleComprasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def detalle_compra_params
-      params.require(:detalle_compra).permit(:compra_id, :repuesto_servicio_id, :cantidad, :subtotal, :iva, :precio_unitario, :precio_venta, :total, :pago, :saldo)
+      params.require(:detalle_compra).permit(:compra_id, :repuesto_servicio_id, :cantidad, :subtotal, :iva, :precio_unitario, :precio_venta, :total, :pago, :saldo, :_destroy)
     end
 end

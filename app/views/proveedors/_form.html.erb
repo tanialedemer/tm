@@ -1,7 +1,8 @@
+<div class="container">
 <%= form_with(model: proveedor, local: true) do |form| %>
   <% if proveedor.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(proveedor.errors.count, "error") %> prohibited this proveedor from being saved:</h2>
+      <%= pluralize(proveedor.errors.count, "errores") %>
 
       <ul>
         <% proveedor.errors.full_messages.each do |message| %>
@@ -10,33 +11,34 @@
       </ul>
     </div>
   <% end %>
+<form>
+<div class="container">
+<div class="container center">
 
-  <div class="field">
-    <%= form.label :nombre %>
-    <%= form.text_field :nombre %>
+  <div class="form-group">
+    <%= form.text_field :ruc, placeholder: "RUC", class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= form.text_field :nombre, class:"form-control", placeholder: "Nombre" %>
   </div>
 
-  <div class="field">
-    <%= form.label :direccion %>
-    <%= form.text_area :direccion %>
+  <div class="form-group">
+    <%= form.text_field :direccion, class:"form-control", placeholder: "Dirección"  %>
   </div>
 
-  <div class="field">
-    <%= form.label :telefono %>
-    <%= form.text_field :telefono %>
+  <div class="form-group">
+    <%= form.text_field :telefono, class:"form-control", placeholder: "Telefono"  %>
   </div>
 
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_area :email %>
-  </div>
-
-  <div class="field">
-    <%= form.label :ruc %>
-    <%= form.text_field :ruc %>
+  <div class="form-group">
+    <%= form.text_field :email, class:"form-control", placeholder: "Email"  %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Guardar", class: "btn btn-success form-control" %>
   </div>
+</div>
+</div>
+</form>
 <% end %>
+</div>

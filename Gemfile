@@ -79,3 +79,10 @@ gem 'cocoon'
 
 # Modal
 gem 'bootstrap-modal-rails'
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-chosen'
+  gem 'rails-assets-chosen-bootstrap'
+end
+#traslate
+gem 'i18n', '~> 1.6'

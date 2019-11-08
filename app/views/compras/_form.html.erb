@@ -1,3 +1,6 @@
+<div class="container">
+  <div class="row">
+    <div class="panel-body">
 <%= form_with(model: compra, local: true) do |form| %>
   <% if compra.errors.any? %>
     <div id="error_explanation">
@@ -10,33 +13,69 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :fecha %>
-    <%= form.date_select :fecha %>
-  </div>
-
-  <div class="field">
-    <%= form.label :proveedor_id %>
-    <%= form.text_field :proveedor_id %>
-  </div>
+<form>
+          <div class="row">
+            <div class="col-xs-5 col-md-4">
+              <div class="form-group">
+                <div class="col-xs-6 col-md-4 text-left">
+                    <%= form.label :num_fact %>
+                       <div class="col-xs-6 col-md-4">
+                    <%= form.number_field :num_fact , placeholder: "Número", type: "text", class: "form-control" %>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-6 col-xs-offset-1 col-md-4 col-md-offset-4">
+            <div class="form-group">
+              <div class="col-xs-4 col-md-4 text-right">
+            <%= form.label :fecha %>
+          </div>
+          <div class="col-xs-8 col-md-6 text-right">
+            <%= form.date_field :fecha %>
+          </div>
+        </div>
+      </div>
+          </div>
+          <hr>
+  <br>
+  <div class="col-xs-6 col-xs-offset-1 col-md-4 col-md-offset-4">
+    <div class="form-group">
+      <div class="col-xs-4 col-md-4 text-right">
 
   <div class="field">
     <%= form.label :tipo_factura_id %>
-    <%= form.text_field :tipo_factura_id %>
+    <%= form.collection_select :tipo_factura_id, TipoFactura.order(:descripcion), :id, :descripcion,class: 'chosen-select' %>
   </div>
+</div>
+</div>
+  </div>
+  <%# <%= form.select_tag :proveedor_id,
+  options_for_select(@proveedors.map{ |nombre| [proveedor.full_name, proveedor.id]}), class: 'chosen-select'%>
+  <div class="col">
 
   <div class="field">
-    <%= form.label :num_fact %>
-    <%= form.number_field :num_fact %>
+    <%= form.label :proveedor_id %>
+    <%= form.collection_select :proveedor_id, Proveedor.order(:nombre), :id, :nombre,class: 'chosen-select' %>
+</div>
   </div>
+
+
+
+  <div class="col">
 
   <div class="field">
     <%= form.label :estado %>
     <%= form.text_field :estado %>
   </div>
+</div>
+<div class="col">
 
   <div class="actions">
     <%= form.submit %>
   </div>
+  </div>
+</div>
+</div>
+</form>
+
 <% end %>
+</div>
