@@ -1,10 +1,24 @@
 class GastosController < ApplicationController
   before_action :set_gasto, only: [:show, :edit, :update, :destroy]
+  PAGE_SIZE = 5
 
   # GET /gastos
   # GET /gastos.json
   def index
     @gastos = Gasto.all
+    @page = (params[:page] || 0).to_i
+
+   if params[:keywords].present?
+     @keywords = params[:keywords]
+     @gastos = Gasto.where("lower(motivo) LIKE '%#{@keywords.downcase}%'").order(:motivo)
+                    .offset(PAGE_SIZE * @page).limit(PAGE_SIZE)
+     number_of_records = Gasto.where("lower(motivo) LIKE '%#{@keywords.downcase}%'").count
+   else
+     @gastos = Gasto.order(:motivo).offset(PAGE_SIZE * @page).limit(PAGE_SIZE)
+     number_of_records = Gasto.count
+   end
+   @number_of_pages = (number_of_records % PAGE_SIZE) == 0 ?
+                       number_of_records / PAGE_SIZE - 1 : number_of_records / PAGE_SIZE
   end
 
   # GET /gastos/1

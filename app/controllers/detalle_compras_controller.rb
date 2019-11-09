@@ -60,7 +60,7 @@ class DetalleComprasController < ApplicationController
   def update
     respond_to do |format|
       if @detalle_compra.update(detalle_compra_params)
-        format.html { redirect_to @detalle_compra.compra, notice: 'Detalle compra was successfully updated.' }
+        format.html { redirect_to @detalle_compra.compra}
         format.json { render :show, status: :ok, location: @detalle_compra }
       else
         format.html { render :edit }

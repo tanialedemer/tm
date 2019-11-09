@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 <div class="container">
 
-<h1>Compras</h1>
+<h3 align="center">Compras</h3>
 
 <table class="table table-hover">
   <thead>
@@ -19,8 +19,8 @@
     <% @compras.each do |compra| %>
       <tr>
         <td><%= compra.fecha %></td>
-        <td><%= compra.proveedor_id %></td>
-        <td><%= compra.tipo_factura_id %></td>
+        <td><%= compra.proveedor.nombre %></td>
+        <td><%= compra.tipo_factura.descripcion %></td>
         <td><%= compra.num_fact %></td>
         <td><%= compra.estado %></td>
         <td><%= link_to 'Show', compra %></td>

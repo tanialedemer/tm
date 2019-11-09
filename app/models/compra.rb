@@ -3,20 +3,20 @@ class Compra < ApplicationRecord
   belongs_to :tipo_factura
   has_many :detalle_compras, dependent: :destroy
   accepts_nested_attributes_for :detalle_compras, reject_if: :detalle_compra_rejectable?, allow_destroy: true
-
+  validates :proveedor_id, presence: true
 
   enum state: [:draft, :confirmed]
 
-
-  def total
-		details = self.detalle_compras
-
-		total = 0.0
-		details.flat_map do |d|
-			total += d.cantidad * d.precio_unitario
-		end
-		total
-	end
+  # 
+  # def total
+	# 	details = self.detalle_compras
+  #
+	# 	total = 0.0
+	# 	details.flat_map do |d|
+	# 		total += d.cantidad * d.precio_unitario
+	# 	end
+	# 	total
+	# end
 
   private
 

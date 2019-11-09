@@ -13,7 +13,7 @@
           <%#= hidden_field_tag :descripcion  %>
       </div>
     </div>
-    <div class="col-xl-2">
+    <div class="col-xl-5">
       <div class="form-group">
           <%= form.label :cantidad, class: "sr-only" %>
           <%= form.text_field :cantidad, placeholder: "Cant.", class: "form-control" %>
@@ -44,15 +44,13 @@
     </div>
   </div>
 </div>
-
+  <div class="modal-footer">
   <%= form.submit "Aceptar", class: "btn btn-primary" %>
 
-  </div>
   <div class="modal-footer">
   <%= link_to "Cancelar", "#", class: "btn btn-danger", "data-dismiss": "modal" %>
   </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+</div>
 <% end %>
+</div>
+</div>

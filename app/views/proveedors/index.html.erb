@@ -17,9 +17,7 @@
   <thead class="head-dark">
     <tr>
       <th>Nombre</th>
-      <th>Direccion</th>
       <th>Telefono</th>
-      <th>Email</th>
       <th>Ruc</th>
       <th colspan="3"><%= link_to 'Nuevo Proveedor', new_proveedor_path, type: "button", class: "btn btn-success"  %>
       </th>
@@ -30,9 +28,7 @@
     <% @proveedors.each do |proveedor| %>
       <tr>
         <td><%= proveedor.nombre %></td>
-        <td><%= proveedor.direccion %></td>
         <td><%= proveedor.telefono %></td>
-        <td><%= proveedor.email %></td>
         <td><%= proveedor.ruc %></td>
         <td><%= link_to 'Detalles', proveedor , class: "btn btn-info" %></td>
         <td><%= link_to 'Editar', edit_proveedor_path(proveedor) , class: "btn btn-primary" %></td>

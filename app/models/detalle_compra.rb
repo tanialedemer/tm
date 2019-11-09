@@ -15,6 +15,22 @@ class DetalleCompra < ApplicationRecord
   end
 
 
+    # 
+    # def total
+  	# 	details = self.detalle_compras
+    #
+  	# 	total = 0.0
+  	# 	details.flat_map do |d|
+  	# 		total += d.cantidad * d.precio_unitario
+  	# 	end
+  	# 	total
+  	# end
+
+  # def total
+  #   DetalleCompra.group(:compra_id).sum(:subtotal)
+  # end
+
+
   # def total
 	# 	details = self.detalle_compra
   #

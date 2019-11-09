@@ -1,5 +1,6 @@
 <section class="search-form">
 	<%= form_for search_entity, method: :get do |f| %>
+	<div class="col-9">
 		<div class="input-group">
 			<%= label_tag :keywords, nil, class: "sr-only" %>
 			<%= text_field_tag :keywords, nil, placeholder: "Buscar", autofocus: true,
@@ -10,5 +11,6 @@
 				<% end %>
 			</span>
 		</div>
+	</div>
 	<% end %>
 </section>

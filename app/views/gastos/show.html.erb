@@ -1,24 +1,37 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Fecha compra:</strong>
-  <%= @gasto.fecha_compra %>
-</p>
-
-<p>
-  <strong>Motivo:</strong>
-  <%= @gasto.motivo %>
-</p>
-
-<p>
-  <strong>Descripcion:</strong>
-  <%= @gasto.descripcion %>
-</p>
-
-<p>
-  <strong>Costo:</strong>
-  <%= @gasto.costo %>
-</p>
-
-<%= link_to 'Edit', edit_gasto_path(@gasto) %> |
-<%= link_to 'Back', gastos_path %>
+<%= link_to '⬅ Lista de Gasto', gastos_path %>
+<br><br>
+<div class="container-fluid">
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-xs-5 col-md-4">
+          <div class="form-group">
+            <div class="col-xs-6 col-md-4 text-left">
+              <strong>Fecha:</strong>
+            </div>
+            <div class="col-xs-6 col-md-4">
+              <%= @gasto.fecha_compra %>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-6 col-xs-offset-1 col-md-4 col-md-offset-4">
+           <div class="form-group">
+             <div class="col-xs-4 col-md-4 text-right">
+               <strong>Motivo:</strong>
+             </div>
+             <div class="col-xs-6 col-md-4 text-right">
+               <%= @gasto.motivo %>
+             </div>
+           </div>
+         </div>
+       </div>
+       <hr>
+       <br>
+      <div class="col-6">
+        <strong>Descripcion:</strong>
+        <%= @gasto.descripcion %>
+      </div>
+<hr>
+<br>
+<td class="thick-line text-right"><h3>Total</h3></td>
+<td class="thick-line text-right"><h3><%= number_to_currency(@gasto.costo, unit: "Gs.") %></h3></td>
+</div>

@@ -1,81 +1,99 @@
-<div class="container-fluid" id="compra-form">
+<div class="container-fluid">
   <div class="row">
 
     <div class="panel-body">
-    <div class="row">
-             <div class="col-xs-5 col-md-4">
-               <div class="form-group">
-                 <div class="col-xs-6 col-md-4 text-left">
-                   <strong>Número de Factura:</strong>
-                   <%= @compra.num_fact %>
-                 </div>
-               </div>
-             </div>
-             <div class="col-xs-6 col-xs-offset-1 col-md-4 col-md-offset-4">
-               <div class="form-group">
-                 <div class="col-xs-4 col-md-4 text-right">
-                   <strong>Fecha:</strong>
-                   <%= @compra.fecha %>
-                 </div>
-               </div>
-             </div>
-             </div>
-             <hr>
-             <br>
-             <div class="col-xs-6 col-xs-offset-1 col-md-4 col-md-offset-4">
-               <div class="form-group">
-                 <div class="col-xs-4 col-md-4 text-right">
-                   <strong>Proveedor:</strong>
-                   <%= @compra.proveedor_id %>
-                 </div>
-               </div>
-             </div>
-             </div>
-             <hr>
-             <br>
-             <div class="col-xs-6 col-xs-offset-1 col-md-4 col-md-offset-4">
-               <div class="form-group">
-                 <div class="col-xs-4 col-md-4 text-right">
-                   <strong>Tipo factura:</strong>
-                   <%= @compra.tipo_factura_id %>
-                 </div>
-               </div>
-             </div>
-             <strong>Estado:</strong>
-             <%= @compra.estado %>
-             </div>
+      <div class="row">
+        <div class="col-3">
+          <strong>Número de Factura:</strong>
+          <%= @compra.num_fact %>
+        </div>
+
+        <div class="col-3">
+          <strong>Fecha:</strong>
+          <%= @compra.fecha %>
+        </div>
+        <div class="col-3">
+          <strong>Estado:</strong>
+          <%= @compra.estado %>
+        </div>
+
+    <div class="col-3">
+      <strong>Tipo factura:</strong>
+      <%= @compra.tipo_factura.descripcion %>
+    </div>
+      </div>
+      <hr>
+      <br>
+
+      <div class="row">
+        <div class="col-8">
+          <strong>Proveedor:</strong>
+          <%= @compra.proveedor.nombre %>
+        </div>
+      </div>
+      </div>
+      </div>
+      <hr>
+      <br>
 
 
     <div class="filed">
       <div class="panel-body" id="sale-details">
         <%= (@compra.detalle_compras.count > 0) ? render(partial: 'detalle_compra', locals: { compra: @compra, show_actions: true }) : 'No hay detalles cargados' %>
       </div>
-      <%= render "detalle_compras/form" %>
+      <!-- Button trigger modal -->
+      <center>
+      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+        Agregar Detalles
+      </button>
+      </center>
+<br>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Detalles</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= render "detalle_compras/form" %>
+      </div>
     </div>
-
+  </div>
+</div>
+    </div>
+<hr>
     <footer>
       <div class="container-fluid">
-
       <%= form_for([@compra, @detalle_compra]) do |form| %>
-      <div class="field">
-        <%= form.label :total %>
-        <%= form.text_field :total %>
+      <div class="row">
+        <div class="col">
+          <div class="field">
+            <%= form.label :total %>
+            <%= form.text_field :total, class:"form-control", disabled: true  %>
+          </div>
+        </div>
+        <div class="col">
+          <div class="field">
+            <%= form.label :pago %>
+            <%= form.text_field :pago, class:"form-control" %>
+          </div>
+        </div>
+        <div class="col">
+          <div class="field">
+            <%= form.label :saldo %>
+            <%= form.text_field :saldo, class:"form-control", disabled: true %>
+          </div>
+        </div>
       </div>
-
-      <div class="field">
-        <%= form.label :pago %>
-        <%= form.text_field :pago %>
-      </div>
-
-      <div class="field">
-        <%= form.label :saldo %>
-        <%= form.text_field :saldo %>
-      </div>
-
   </div>
+  <br>
+  <%= form.submit "Guardar" , class: 'btn btn-primary mb-2' %>
 
+  <%#= link_to 'Guardar', new_compra_detalle_compra_path(@detalle_compra) %>
+  <%#= link_to 'Volver atrás', destroy_compra_detalle_compras_path, notice: {"Se perderán los datos"} %>
       <%end%>
     </footer>
-
-    <%= link_to 'Edit', edit_compra_path(@compra) %> |
-    <%= link_to 'Back', compras_path %>
