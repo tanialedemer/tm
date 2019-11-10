@@ -1,44 +1,40 @@
-<p id="notice"><%= notice %></p>
+<div class="center">
+  <h4>Datos del Vehiculo</h4>
+  <div class="card" style="width: 50rem;">
+    <div class="card-body">
 
-<p>
-  <strong>Modelo:</strong>
-  <%= @vehiculo.modelo %>
-</p>
+      <li class="list-group-item">
+      <strong>Modelo:</strong>
+      <%= @vehiculo.modelo %></li>
 
-<p>
-  <strong>Color:</strong>
-  <%= @vehiculo.color %>
-</p>
+      <li class="list-group-item">
+      <strong>Color:</strong>
+      <%= @vehiculo.color %></li>
 
-<p>
-  <strong>Matricula:</strong>
-  <%= @vehiculo.matricula %>
-</p>
+      <li class="list-group-item">
+      <strong>Matricula:</strong>
+      <%= @vehiculo.matricula %></li>
 
-<p>
-  <strong>Marca:</strong>
-  <%= @vehiculo.marca %>
-</p>
+      <li class="list-group-item">
+      <strong>Marca:</strong>
+      <%= @vehiculo.marca %></li>
 
-<p>
-  <strong>Km:</strong>
-  <%= @vehiculo.km %>
-</p>
+      <li class="list-group-item">
+      <strong>Km:</strong>
+      <%= @vehiculo.km %></li>
 
-<p>
-  <strong>Chasis:</strong>
-  <%= @vehiculo.chasis %>
-</p>
+      <li class="list-group-item">
+      <strong>Chasis:</strong>
+      <%= @vehiculo.chasis %></li>
 
-<p>
-  <strong>Year fab:</strong>
-  <%= @vehiculo.year_fab %>
-</p>
+      <li class="list-group-item">
+      <strong>Year fab:</strong>
+      <%= @vehiculo.year_fab %></li>
 
-<p>
-  <strong>Cliente:</strong>
-  <%= @vehiculo.cliente_id %>
-</p>
+      <li class="list-group-item">
+      <strong>Cliente:</strong>
+      <%= @vehiculo.cliente.nombre %> , <%= @vehiculo.cliente.apellido %></li>
 
-<%= link_to 'Edit', edit_vehiculo_path(@vehiculo) %> |
-<%= link_to 'Back', vehiculos_path %>
+<br>
+<%= link_to 'Editar', edit_vehiculo_path(@vehiculo), class:"btn btn-info" %> |
+<%= link_to 'Volver', vehiculos_path, class:"btn btn-success" %>

@@ -1,10 +1,24 @@
 class ClientesController < ApplicationController
   before_action :set_cliente, only: [:show, :edit, :update, :destroy]
+  PAGE_SIZE = 5
 
   # GET /clientes
   # GET /clientes.json
   def index
     @clientes = Cliente.all
+    @page = (params[:page] || 0).to_i
+
+   if params[:keywords].present?
+     @keywords = params[:keywords]
+     @clientes = Cliente.where("lower(nombre) LIKE '%#{@keywords.downcase}%'").order(:nombre)
+                    .offset(PAGE_SIZE * @page).limit(PAGE_SIZE)
+     number_of_records = Cliente.where("lower(nombre) LIKE '%#{@keywords.downcase}%'").count
+   else
+     @clientes = Cliente.order(:nombre).offset(PAGE_SIZE * @page).limit(PAGE_SIZE)
+     number_of_records = Cliente.count
+   end
+   @number_of_pages = (number_of_records % PAGE_SIZE) == 0 ?
+                       number_of_records / PAGE_SIZE - 1 : number_of_records / PAGE_SIZE
   end
 
   # GET /clientes/1

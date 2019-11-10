@@ -1,6 +1,4 @@
-<p id="notice"><%= notice %></p>
 <div class="container">
-
 <h3 align="center">Compras</h3>
 
 <table class="table table-hover">
@@ -11,7 +9,9 @@
       <th>Tipo factura</th>
       <th>Num fact</th>
       <th>Estado</th>
-      <th colspan="3"></th>
+      <th colspan="3">
+        <%= link_to 'Nueva Compra', new_compra_path, class:"btn btn-success" %>
+      </th>
     </tr>
   </thead>
 
@@ -23,14 +23,10 @@
         <td><%= compra.tipo_factura.descripcion %></td>
         <td><%= compra.num_fact %></td>
         <td><%= compra.estado %></td>
-        <td><%= link_to 'Show', compra %></td>
-        <td><%= link_to 'Edit', edit_compra_path(compra) %></td>
-        <td><%= link_to 'Destroy', compra, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Detalles', compra , class:"btn btn-info"%></td>
+        <td><%= link_to 'Editar', edit_compra_path(compra), class:"btn btn-primary" %></td>
+        <td><%= link_to 'Eliminar', compra, method: :delete, data: { confirm: 'Está seguro?' }, class:"btn btn-danger" %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Compra', new_compra_path %>

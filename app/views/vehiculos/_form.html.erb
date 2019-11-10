@@ -1,7 +1,9 @@
+<div class="container">
+
 <%= form_with(model: vehiculo, local: true) do |form| %>
   <% if vehiculo.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(vehiculo.errors.count, "error") %> prohibited this vehiculo from being saved:</h2>
+      <%= pluralize(vehiculo.errors.count, "errores") %>
 
       <ul>
         <% vehiculo.errors.full_messages.each do |message| %>
@@ -10,48 +12,49 @@
       </ul>
     </div>
   <% end %>
+<div class="container">
+  <div class="container center">
 
-  <div class="field">
-    <%= form.label :modelo %>
-    <%= form.text_field :modelo %>
+  <div class="form-group">
+    <%= form.label :cliente_id ,"Cliente"%>
+    <%= form.collection_select :cliente_id, Cliente.order(:nombre), :id, :nombre,class: "chosen-select form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :color %>
-    <%= form.text_field :color %>
+  <div class="form-group">
+    <%= form.text_field :modelo, class:"form-control", placeholder:"Modelo" %>
   </div>
 
-  <div class="field">
-    <%= form.label :matricula %>
-    <%= form.text_field :matricula %>
+  <div class="form-group">
+    <%= form.text_field :color, class:"form-control", placeholder:"Color" %>
   </div>
 
-  <div class="field">
-    <%= form.label :marca %>
-    <%= form.text_field :marca %>
+  <div class="form-group">
+    <%= form.text_field :matricula, class:"form-control", placeholder:"Matricula" %>
   </div>
 
-  <div class="field">
-    <%= form.label :km %>
-    <%= form.text_field :km %>
+  <div class="form-group">
+    <%= form.text_field :marca, class:"form-control", placeholder:"Marcas" %>
   </div>
 
-  <div class="field">
-    <%= form.label :chasis %>
-    <%= form.text_field :chasis %>
+  <div class="form-group">
+    <%= form.text_field :km, class:"form-control", placeholder:"Km" %>
   </div>
 
-  <div class="field">
-    <%= form.label :year_fab %>
-    <%= form.number_field :year_fab %>
+  <div class="form-group">
+    <%= form.text_field :chasis, class:"form-control", placeholder:"Chasis" %>
   </div>
 
-  <div class="field">
-    <%= form.label :cliente_id %>
-    <%= form.text_field :cliente_id %>
+  <div class="form-group">
+    <%= form.number_field :year_fab, class:"form-control", placeholder:"Año" %>
   </div>
+
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Guardar", class:"btn btn-success form-control" %>
   </div>
+
+</div>
+</div>
+
 <% end %>
+</div>

@@ -1,3 +1,4 @@
+<div class="container">
 <%= form_with(model: pago_factura, local: true) do |form| %>
   <% if pago_factura.errors.any? %>
     <div id="error_explanation">
@@ -10,23 +11,25 @@
       </ul>
     </div>
   <% end %>
+  <div class="col-4">
+  <div class="form-group">
+    <%= form.label :fecha %>
+    <%= form.date_field :fecha, class:"form-control" %>
+  </div>
+</div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :compra_id %>
     <%= form.text_field :compra_id %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :proveedor_id %>
     <%= form.text_field :proveedor_id %>
   </div>
 
-  <div class="field">
-    <%= form.label :fecha %>
-    <%= form.date_select :fecha %>
-  </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :monto_pago %>
     <%= form.text_field :monto_pago %>
   </div>
@@ -35,3 +38,4 @@
     <%= form.submit %>
   </div>
 <% end %>
+</div>

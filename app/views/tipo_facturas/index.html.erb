@@ -1,12 +1,12 @@
-<p id="notice"><%= notice %></p>
+<h3 align="center">Tipo Facturas</h3>
 
-<h1>Tipo Facturas</h1>
-
-<table>
+<table class="table table-hover">
   <thead>
     <tr>
       <th>Descripcion</th>
-      <th colspan="3"></th>
+      <th>
+        <%= link_to 'Nuevo Tipo de Factura', new_tipo_factura_path, class:"btn btn-success" %>
+      </th>
     </tr>
   </thead>
 
@@ -14,14 +14,9 @@
     <% @tipo_facturas.each do |tipo_factura| %>
       <tr>
         <td><%= tipo_factura.descripcion %></td>
-        <td><%= link_to 'Show', tipo_factura %></td>
-        <td><%= link_to 'Edit', edit_tipo_factura_path(tipo_factura) %></td>
-        <td><%= link_to 'Destroy', tipo_factura, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Editar', edit_tipo_factura_path(tipo_factura), class:"btn btn-primary" %></td>
+        <td><%= link_to 'Eliminar', tipo_factura, method: :delete, data: { confirm: 'Está seguro?' }, class:"btn btn-danger" %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Tipo Factura', new_tipo_factura_path %>

@@ -1,3 +1,5 @@
+<div class="container">
+
 <%= form_with(model: tipo_factura, local: true) do |form| %>
   <% if tipo_factura.errors.any? %>
     <div id="error_explanation">
@@ -10,13 +12,18 @@
       </ul>
     </div>
   <% end %>
+<div class="container">
+  <div class="container center">
 
   <div class="field">
-    <%= form.label :descripcion %>
-    <%= form.text_field :descripcion %>
+    <%= form.text_field :descripcion, class:"form-control", placeholder:"Descripcion" %>
   </div>
-
+<br>
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Guardar", class:"form-control btn btn-success" %>
   </div>
+  </div>
+</div>
+
 <% end %>
+</div>

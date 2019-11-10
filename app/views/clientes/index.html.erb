@@ -1,18 +1,24 @@
-<p id="notice"><%= notice %></p>
+<h3 align="center">Clientes</h3>
+<%# boton nuevo %>
+<div class="container-fluid" align="center">
+  <%= render partial: 'layouts/search_form', locals: { search_entity: 'items', word: "Cliente" } %>
+<br>
+</div>
+<br>
+<div class="boton_redirect">
+<%= render partial: "pager", locals: { keywords: @keywords, page: @page } %>
+</div>
 
-<h1>Clientes</h1>
-
-<table>
+<table class="table table-hover">
   <thead>
     <tr>
       <th>Nombre</th>
       <th>Apellido</th>
-      <th>Direccion</th>
       <th>Telefono</th>
-      <th>Email</th>
-      <th>Documento</th>
       <th>Ruc</th>
-      <th colspan="3"></th>
+      <th colspan="3">
+        <%= link_to 'Nuevo Cliente', new_cliente_path, class:"btn btn-success" %>
+      </th>
     </tr>
   </thead>
 
@@ -21,19 +27,12 @@
       <tr>
         <td><%= cliente.nombre %></td>
         <td><%= cliente.apellido %></td>
-        <td><%= cliente.direccion %></td>
         <td><%= cliente.telefono %></td>
-        <td><%= cliente.email %></td>
-        <td><%= cliente.documento %></td>
         <td><%= cliente.ruc %></td>
-        <td><%= link_to 'Show', cliente %></td>
-        <td><%= link_to 'Edit', edit_cliente_path(cliente) %></td>
-        <td><%= link_to 'Destroy', cliente, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Detalles', cliente, class: "btn btn-info" %></td>
+        <td><%= link_to 'Editar', edit_cliente_path(cliente), class:"btn btn-primary" %></td>
+        <td><%= link_to 'Eliminar', cliente, method: :delete, data: { confirm: 'Está seguro?' }, class:"btn btn-danger" %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Cliente', new_cliente_path %>

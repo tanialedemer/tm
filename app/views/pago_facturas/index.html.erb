@@ -1,15 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Pago Facturas</h1>
+<h3 align="center">Pago Facturas</h3>
 
-<table>
+<table class="table table-hover">
   <thead>
     <tr>
       <th>Compra</th>
       <th>Proveedor</th>
       <th>Fecha</th>
       <th>Monto pago</th>
-      <th colspan="3"></th>
+      <th colspan="3">
+        <%= link_to 'Nuevo Pago', new_pago_factura_path, class: "btn btn-success" %>
+      </th>
     </tr>
   </thead>
 
@@ -29,5 +31,3 @@
 </table>
 
 <br>
-
-<%= link_to 'New Pago Factura', new_pago_factura_path %>

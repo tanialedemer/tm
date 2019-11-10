@@ -1,39 +1,54 @@
-<p id="notice"><%= notice %></p>
+<div class="center">
+  <h4>Datos del Cliente</h4>
+  <div class="card" style="width: 50rem;">
+    <div class="card-body">
+      <li class="list-group-item">
 
-<p>
   <strong>Nombre:</strong>
   <%= @cliente.nombre %>
-</p>
+</li>
 
-<p>
+
+  <li class="list-group-item">
+
   <strong>Apellido:</strong>
   <%= @cliente.apellido %>
-</p>
+</li>
+<li class="list-group-item">
 
-<p>
   <strong>Direccion:</strong>
   <%= @cliente.direccion %>
-</p>
+</li>
 
-<p>
+
+  <li class="list-group-item">
+
   <strong>Telefono:</strong>
   <%= @cliente.telefono %>
-</p>
+</li>
 
-<p>
+
+  <li class="list-group-item">
+
   <strong>Email:</strong>
   <%= @cliente.email %>
-</p>
+</li>
 
-<p>
+  <li class="list-group-item">
+
   <strong>Documento:</strong>
   <%= @cliente.documento %>
-</p>
+</li>
 
-<p>
+
+  <li class="list-group-item">
   <strong>Ruc:</strong>
   <%= @cliente.ruc %>
-</p>
 
-<%= link_to 'Edit', edit_cliente_path(@cliente) %> |
-<%= link_to 'Back', clientes_path %>
+</li>
+<br>
+<%= link_to 'Editar', edit_cliente_path(@cliente), class: "btn btn-primary" %> |
+<%= link_to 'Volver', clientes_path , class: "btn btn-success" %>
+</div>
+</div>
+</div>
