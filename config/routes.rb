@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  get 'repuesto_serviciosuggestion/index'
+  get '/items_suggestion', to: 'items_suggestion#index'
+  get '/validate_suggested_item', to: 'validate_suggested_item#index'
+  # get 'repuesto_serviciosuggestion/index'
 
   resources :payments do
     resources :payment_details

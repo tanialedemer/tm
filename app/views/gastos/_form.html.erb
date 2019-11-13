@@ -3,8 +3,7 @@
 <%= form_with(model: gasto, local: true) do |form| %>
   <% if gasto.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(gasto.errors.count, "error") %> prohibited this gasto from being saved:</h2>
-
+      <%= pluralize(gasto.errors.count, "errores") %>
       <ul>
         <% gasto.errors.full_messages.each do |message| %>
           <li><%= message %></li>

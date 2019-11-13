@@ -28,7 +28,7 @@ class GastosController < ApplicationController
 
   # GET /gastos/new
   def new
-    @gasto = Gasto.new
+    @gasto = Gasto.new(fecha_compra: Date::current)
   end
 
   # GET /gastos/1/edit

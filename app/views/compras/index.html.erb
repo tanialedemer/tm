@@ -8,6 +8,7 @@
       <th>Proveedor</th>
       <th>Tipo factura</th>
       <th>Num fact</th>
+      <th>Total</th>
       <th>Estado</th>
       <th colspan="3">
         <%= link_to 'Nueva Compra', new_compra_path, class:"btn btn-success" %>
@@ -22,6 +23,7 @@
         <td><%= compra.proveedor.nombre %></td>
         <td><%= compra.tipo_factura.descripcion %></td>
         <td><%= compra.num_fact %></td>
+        <td><%= number_to_currency(compra.total, unit:"Gs.") %></td>
         <td><%= compra.estado %></td>
         <td><%= link_to 'Detalles', compra , class:"btn btn-info"%></td>
         <td><%= link_to 'Editar', edit_compra_path(compra), class:"btn btn-primary" %></td>

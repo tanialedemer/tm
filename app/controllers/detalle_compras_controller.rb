@@ -1,5 +1,5 @@
 class DetalleComprasController < ApplicationController
-  before_action :set_detalle_compra, only: [:show, :edit, :update, :destroy]
+  before_action :set_detalle_compra, only: [:show, :edit, :update, :_destroy]
   before_action :set_compra
 
 
@@ -50,9 +50,17 @@ class DetalleComprasController < ApplicationController
 			detalle_compra = DetalleCompra.new(detalle_compra_params)
 			@compra.detalle_compras << detalle_compra
 		end
-		@compra.save!
-    redirect_to @detalle_compra.compra
 
+
+    respond_to do |format|
+      if @compra.save!
+        format.html { redirect_to @detalle_compra.compra}
+        format.json { render :show, status: :ok, location: @detalle_compra.compra }
+      else
+        format.html { render :edit }
+        format.json { render json: @detalle_compra.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # PATCH/PUT /detalle_compras/1
@@ -77,6 +85,7 @@ class DetalleComprasController < ApplicationController
 
 		respond_to do |format|
 			format.js { render layout: false }
+      format.html { redirect_to @compra, notice: 'Detalle compra was successfully destroyed.' }
 		end
     # @detalle_compra.destroy
     # respond_to do |format|
@@ -88,7 +97,7 @@ class DetalleComprasController < ApplicationController
   private
 
     def set_compra
-      @compra = Compra.find(params[:compra_id])
+      @compra = Compra.find(params[:compra_id].to_i)
     end
     # Use callbacks to share common setup or constraints between actions.
     def set_detalle_compra

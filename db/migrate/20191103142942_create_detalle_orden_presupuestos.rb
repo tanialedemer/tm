@@ -6,7 +6,6 @@ class CreateDetalleOrdenPresupuestos < ActiveRecord::Migration[6.0]
       t.float :cantidad
       t.float :precio_unitario
       t.float :subtotal
-      t.float :total
 
       t.timestamps
     end

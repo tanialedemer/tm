@@ -1,28 +1,58 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <h3 align="center">Presupuesto</h3>
+  <hr>
+  <br>
+<div class="row">
+  <div class="col-4">
 
 <p>
-  <strong>Número Presupuesto:</strong>
+  <strong>Número:</strong>
   <%= @presupuesto.id %>
 </p>
+</div>
 
+<div class="col-4">
 
 <p>
   <strong>Descripcion:</strong>
   <%= @presupuesto.descripcion %>
 </p>
+</div>
+<div class="col-4">
 
 <p>
   <strong>Cliente:</strong>
-  <%= @presupuesto.cliente_id %>
+  <%= @presupuesto.cliente.nombre %>, <%= @presupuesto.cliente.apellido %>
 </p>
-
-<div class="filed">
-  <div class="panel-body" id="sale-details">
-    <%= (@presupuesto.detalle_orden_presupuestos.count > 0) ? render(partial: 'detalle_presupuesto', locals: { presupuesto: @presupuesto, show_actions: true }) : 'No hay detalles cargados' %>
-  </div>
-  <%= render "detalle_orden_presupuestos/form" %>
+</div>
 </div>
 
+    <div class="filed">
+      <div class="panel-body" id="detalles">
+        <%= (@presupuesto.detalle_orden_presupuestos.count > 0) ? render(partial: 'detalle_presupuesto', locals: { presupuesto: @presupuesto, show_actions: true }) : 'No hay detalles cargados' %>
+      </div>
+      <!-- Button trigger modal -->
+      <center>
+      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+        Agregar Detalles
+      </button>
+      </center>
 
-<%= link_to 'Edit', edit_presupuesto_path(@presupuesto) %> |
-<%= link_to 'Back', presupuestos_path %>
+<br>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Detalles</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= render "detalle_orden_presupuestos/form" %>
+      </div>
+    </div>
+  </div>
+</div>

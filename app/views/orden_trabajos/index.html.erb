@@ -1,25 +1,27 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Orden Trabajos</h1>
 
-<table>
+<h3 align="center">Orden de Trabajo</h3>
+
+<table class="table table-hover">
   <thead>
     <tr>
+      <th>Num orden</th>
+      <th>Cliente</th>
       <th>Descripcion</th>
       <th>Mecanico</th>
-      <th>Cliente</th>
-      <th>Num orden</th>
-      <th colspan="3"></th>
+      <th colspan="3">
+        <%= link_to 'Nueva Orden de Trabajo', new_orden_trabajo_path, class:"btn btn-success" %>
+      </th>
     </tr>
   </thead>
 
   <tbody>
     <% @orden_trabajos.each do |orden_trabajo| %>
       <tr>
+        <td><%= orden_trabajo.num_orden %></td>
+        <td><%= orden_trabajo.cliente_id %></td>
         <td><%= orden_trabajo.descripcion %></td>
         <td><%= orden_trabajo.mecanico_id %></td>
-        <td><%= orden_trabajo.cliente_id %></td>
-        <td><%= orden_trabajo.num_orden %></td>
         <td><%= link_to 'Show', orden_trabajo %></td>
         <td><%= link_to 'Edit', edit_orden_trabajo_path(orden_trabajo) %></td>
         <td><%= link_to 'Destroy', orden_trabajo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -27,7 +29,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Orden Trabajo', new_orden_trabajo_path %>

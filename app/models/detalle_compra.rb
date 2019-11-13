@@ -2,6 +2,13 @@ class DetalleCompra < ApplicationRecord
   belongs_to :compra
   belongs_to :repuesto_servicio
 
+  validates :repuesto_servicio_id, presence: true
+  validates :cantidad, presence: true
+  validates :precio_unitario, presence: true
+  validates :precio_venta, presence: true
+  validates :subtotal, presence: true
+  # validates :total, presence: true
+
   def subtotal
     self.cantidad ? cantidad * unit_price : 0
   end
@@ -13,32 +20,5 @@ class DetalleCompra < ApplicationRecord
       repuesto_servicio ? repuesto_servicio.costo : 0
     end
   end
-
-
-    # 
-    # def total
-  	# 	details = self.detalle_compras
-    #
-  	# 	total = 0.0
-  	# 	details.flat_map do |d|
-  	# 		total += d.cantidad * d.precio_unitario
-  	# 	end
-  	# 	total
-  	# end
-
-  # def total
-  #   DetalleCompra.group(:compra_id).sum(:subtotal)
-  # end
-
-
-  # def total
-	# 	details = self.detalle_compra
-  #
-	# 	total = 0.0
-	# 	details.flat_map do |d|
-	# 		total += d.cantidad * d.precio_unitario
-	# 	end
-	# 	total
-	# end
 
 end

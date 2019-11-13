@@ -1,0 +1,9 @@
+$("ul.errors").html("");
+<% if @presupuesto.detalle_orden_presupuesto.last.errors.any? %>
+	<% @presupuesto.detalle_orden_presupuesto.last.errors.full_messages.each do |message| %>
+		$("ul.errors").append($("<li />").html(" <%= message.html_safe %> "));
+	<% end %>
+<% else %>
+	$("#detalles").html("<%= escape_javascript(render(partial: 'presupuestos/detalle_presupuesto', locals: { presupuesto: @presupuesto, show_actions: true })) %>");
+	$("#new-detail-modal").modal("hide");
+<% end %>

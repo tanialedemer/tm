@@ -74,6 +74,7 @@ class ComprasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def compra_params
-      params.require(:compra).permit(:fecha, :proveedor_id, :tipo_factura_id, :num_fact, :estado)
+      params.require(:compra).permit(:fecha, :proveedor_id, :tipo_factura_id, :num_fact, :estado,
+      :detalle_compras_attributes => [:id,:compra_id, :repuesto_servicio_id, :cantidad, :subtotal, :iva, :precio_unitario, :precio_venta, :total, :pago, :saldo, :_destroy])
     end
 end

@@ -1,6 +1,5 @@
 <div class="container-fluid">
   <div class="row">
-
     <div class="panel-body">
       <div class="row">
         <div class="col-3">
@@ -47,6 +46,7 @@
         Agregar Detalles
       </button>
       </center>
+
 <br>
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -70,28 +70,13 @@
       <div class="container-fluid">
       <%= form_for([@compra, @detalle_compra]) do |form| %>
       <div class="row">
-        <div class="col">
-          <div class="field">
-            <%= form.label :total %>
-            <%= form.text_field :total, class:"form-control", disabled: true  %>
-          </div>
-        </div>
-        <div class="col">
-          <div class="field">
-            <%= form.label :pago %>
-            <%= form.text_field :pago, class:"form-control" %>
-          </div>
-        </div>
-        <div class="col">
-          <div class="field">
-            <%= form.label :saldo %>
-            <%= form.text_field :saldo, class:"form-control", disabled: true %>
-          </div>
+        <div class="col-2">
+            <%=form.hidden_field :total, class:"form-control", disabled: true, value: @compra.total%>
         </div>
       </div>
   </div>
   <br>
-  <%= form.submit "Guardar" , class: 'btn btn-primary mb-2' %>
+  <%= form.submit "Guardar" , class: 'btn btn-primary' %>
 
   <%#= link_to 'Guardar', new_compra_detalle_compra_path(@detalle_compra) %>
   <%#= link_to 'Volver atrás', destroy_compra_detalle_compras_path, notice: {"Se perderán los datos"} %>

@@ -45,12 +45,11 @@
   </div>
 </div>
   <div class="modal-footer">
-  <%= form.submit "Aceptar", class: "btn btn-primary" %>
+    <% message = (action_name == 'edit') ? "Volver" : "Aceptar" %>
+       <%= form.submit message, class: "btn btn-success" %>
 
-  <div class="modal-footer">
   <%= link_to "Cancelar", "#", class: "btn btn-danger", "data-dismiss": "modal" %>
   </div>
 </div>
 <% end %>
-</div>
 </div>

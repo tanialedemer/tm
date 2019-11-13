@@ -1,0 +1,12 @@
+<% @compra.detalle_compras.each do |detail| %>
+	<tr>
+		<td><%= detail.repuesto_servicio.descripcion %></td>
+		<td class="text-right"><%= detail.cantidad %></td>
+		<td class="text-right"><%= number_to_currency(detail.precio_unitario, unit: "Gs.") %></td>
+    <td class="text-right"><%= number_to_currency(detail.precio_venta, unit: "Gs.") %></td>
+		<td class="text-right"><%= number_to_currency(detail.subtotal, unit: "Gs.") %></td>
+		<% if show_actions %>
+			<td><%= link_to "Eliminar", compra_detalle_compra_path(detail.compra.id, detail.id), method: :delete, remote: true, data: { confirm: 'Está seguro?' } %> </td>
+		<% end %>
+	</tr>
+<% end %>
