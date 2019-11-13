@@ -1,3 +1,5 @@
+module DeviseHelper
+
 def devise_error_messages!
     return '' if resource.errors.empty?
 
@@ -16,3 +18,4 @@ def devise_error_messages!
 
     html.html_safe
   end
+end
