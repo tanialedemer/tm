@@ -6,6 +6,8 @@ class DetalleOrdenPresupuestosController < ApplicationController
   # GET /detalle_orden_presupuestos.json
   def index
     @detalle_orden_presupuestos = DetalleOrdenPresupuesto.all
+    @detalle_orden_presupuestos.repuesto_servicio = RepuestoServicio.first
+
   end
 
   # GET /detalle_orden_presupuestos/1
@@ -69,7 +71,7 @@ class DetalleOrdenPresupuestosController < ApplicationController
   def update
     respond_to do |format|
       if @detalle_orden_presupuesto.update(detalle_orden_presupuesto_params)
-        format.html { redirect_to @detalle_orden_presupuesto.presupuesto, notice: 'Detalle orden presupuesto was successfully updated.' }
+        format.html { redirect_to @detalle_orden_presupuesto.presupuesto}
         format.json { render :show, status: :ok, location: @detalle_orden_presupuesto }
       else
         format.html { render :edit }
@@ -86,7 +88,7 @@ class DetalleOrdenPresupuestosController < ApplicationController
 
 		respond_to do |format|
 			format.js { render layout: false }
-      format.html { redirect_to @presupuesto, notice: 'Detalle Eliminado.' }
+      format.html { redirect_to @presupuesto, notice: 'Detalle fue eliminado con éxito.' }
 		end
   end
 

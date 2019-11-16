@@ -29,7 +29,7 @@ class PresupuestosController < ApplicationController
 
     respond_to do |format|
       if @presupuesto.save
-        format.html { redirect_to @presupuesto, notice: 'Presupuesto was successfully created.' }
+        format.html { redirect_to @presupuesto, notice: 'Presupuesto fue creado con éxito.' }
         format.json { render :show, status: :created, location: @presupuesto }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class PresupuestosController < ApplicationController
   def update
     respond_to do |format|
       if @presupuesto.update(presupuesto_params)
-        format.html { redirect_to @presupuesto, notice: 'Presupuesto was successfully updated.' }
+        format.html { redirect_to @presupuesto, notice: 'Presupuesto fue actualizado con éxito.' }
         format.json { render :show, status: :ok, location: @presupuesto }
       else
         format.html { render :edit }
@@ -57,7 +57,7 @@ class PresupuestosController < ApplicationController
   def destroy
     @presupuesto.destroy
     respond_to do |format|
-      format.html { redirect_to presupuestos_url, notice: 'Presupuesto was successfully destroyed.' }
+      format.html { redirect_to presupuestos_url, notice: 'Presupuesto fue eliminado con éxito.' }
       format.json { head :no_content }
     end
   end

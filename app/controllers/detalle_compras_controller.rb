@@ -85,7 +85,7 @@ class DetalleComprasController < ApplicationController
 
 		respond_to do |format|
 			format.js { render layout: false }
-      format.html { redirect_to @compra, notice: 'Detalle compra was successfully destroyed.' }
+      format.html { redirect_to @compra, notice: 'Detalle compra fue eliminado con éxito. }
 		end
     # @detalle_compra.destroy
     # respond_to do |format|

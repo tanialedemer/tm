@@ -33,7 +33,7 @@ class DetalleOrdenTrabajosController < ApplicationController
 
     respond_to do |format|
       if @detalle_orden_trabajo.save
-        format.html { redirect_to @detalle_orden_trabajo.orden_trabajo, notice: 'Detalle orden trabajo was successfully created.' }
+        format.html { redirect_to @detalle_orden_trabajo.orden_trabajo, notice: 'Detalle fue creado con éxito.' }
         format.json { render :show, status: :created, location: @detalle_orden_trabajo }
       else
         format.html { render :new }
@@ -47,7 +47,7 @@ class DetalleOrdenTrabajosController < ApplicationController
   def update
     respond_to do |format|
       if @detalle_orden_trabajo.update(detalle_orden_trabajo_params)
-        format.html { redirect_to @detalle_orden_trabajo.orden_trabajo, notice: 'Detalle orden trabajo was successfully updated.' }
+        format.html { redirect_to @detalle_orden_trabajo.orden_trabajo, notice: 'Detalle fue actualizado con éxito.' }
         format.json { render :show, status: :ok, location: @detalle_orden_trabajo }
       else
         format.html { render :edit }
@@ -61,7 +61,7 @@ class DetalleOrdenTrabajosController < ApplicationController
   def destroy
     @detalle_orden_trabajo.destroy
     respond_to do |format|
-      format.html { redirect_to @orden_trabajo, notice: 'Detalle orden trabajo was successfully destroyed.' }
+      format.html { redirect_to @orden_trabajo, notice: 'Detalle fue eliminado con éxito.' }
       format.json { head :no_content }
     end
   end

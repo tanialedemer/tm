@@ -22,6 +22,9 @@ Rails.application.routes.draw do
     resources :detalle_orden_trabajos
   end
 
+  resources :detalle_compras do
+   get :autocomplete_product_name, on: :collection
+  end
 
   resources :venta
   resources :pago_facturas

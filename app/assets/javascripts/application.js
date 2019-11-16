@@ -16,6 +16,8 @@
 //= require bootstrap-modal
 //= require bootstrap-modalmanager
 //= require 'typeahead.js.js'
+//= require jquery
+//= require jquery-ui/widgets/autocomplete
 //= require_tree .
 
 $(document).on('turbolinks:load', function(){

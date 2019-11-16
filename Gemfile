@@ -86,3 +86,6 @@ source 'https://rails-assets.org' do
 end
 #traslate
 gem 'i18n', '~> 1.6'
+#autocompletado
+gem 'jquery-ui-rails'
+gem 'rails-jquery-autocomplete'

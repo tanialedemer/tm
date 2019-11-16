@@ -6,7 +6,7 @@
     <td class="text-right"><%= number_to_currency(detail.precio_venta, unit: "Gs.") %></td>
 		<td class="text-right"><%= number_to_currency(detail.subtotal, unit: "Gs.") %></td>
 		<% if show_actions %>
-			<td><%= link_to "Eliminar", compra_detalle_compra_path(detail.compra.id, detail.id), method: :delete, remote: true, data: { confirm: 'Está seguro?' } %> </td>
+			<td><%= link_to "Eliminar", compra_detalle_compra_path(detail.compra.id, detail.id), method: :delete, remote: true%> </td>
 		<% end %>
 	</tr>
 <% end %>

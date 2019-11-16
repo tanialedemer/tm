@@ -5,5 +5,5 @@ class Vehiculo < ApplicationRecord
   validates :marca, presence: true
   validates :km, presence: true
   validates :chasis, presence: true
-  validates :year_fab, presence: true
+  validates_presence_of :year_fab
 end

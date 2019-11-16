@@ -28,7 +28,7 @@ class VehiculosController < ApplicationController
 
     respond_to do |format|
       if @vehiculo.save
-        format.html { redirect_to @vehiculo, notice: 'Vehiculo was successfully created.' }
+        format.html { redirect_to @vehiculo, notice: 'Vehiculo fue creado con éxito.' }
         format.json { render :show, status: :created, location: @vehiculo }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class VehiculosController < ApplicationController
   def update
     respond_to do |format|
       if @vehiculo.update(vehiculo_params)
-        format.html { redirect_to @vehiculo, notice: 'Vehiculo was successfully updated.' }
+        format.html { redirect_to @vehiculo, notice: 'Vehiculo fue actualizado con éxito.' }
         format.json { render :show, status: :ok, location: @vehiculo }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class VehiculosController < ApplicationController
   def destroy
     @vehiculo.destroy
     respond_to do |format|
-      format.html { redirect_to vehiculos_url, notice: 'Vehiculo was successfully destroyed.' }
+      format.html { redirect_to vehiculos_url, notice: 'Vehiculo fue eliminado con éxito.' }
       format.json { head :no_content }
     end
   end

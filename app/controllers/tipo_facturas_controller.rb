@@ -28,7 +28,7 @@ class TipoFacturasController < ApplicationController
 
     respond_to do |format|
       if @tipo_factura.save
-        format.html { redirect_to @tipo_factura, notice: 'Tipo factura was successfully created.' }
+        format.html { redirect_to @tipo_factura, notice: 'Tipo factura fue creado con éxito.' }
         format.json { render :show, status: :created, location: @tipo_factura }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class TipoFacturasController < ApplicationController
   def update
     respond_to do |format|
       if @tipo_factura.update(tipo_factura_params)
-        format.html { redirect_to @tipo_factura, notice: 'Tipo factura was successfully updated.' }
+        format.html { redirect_to @tipo_factura, notice: 'Tipo factura fue actualizado con éxito.' }
         format.json { render :show, status: :ok, location: @tipo_factura }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class TipoFacturasController < ApplicationController
   def destroy
     @tipo_factura.destroy
     respond_to do |format|
-      format.html { redirect_to tipo_facturas_url, notice: 'Tipo factura was successfully destroyed.' }
+      format.html { redirect_to tipo_facturas_url, notice: 'Tipo factura fue eliminado con éxito.' }
       format.json { head :no_content }
     end
   end
