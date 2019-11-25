@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_06_220840) do
+ActiveRecord::Schema.define(version: 2019_11_23_165856) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,27 +35,19 @@ ActiveRecord::Schema.define(version: 2019_11_06_220840) do
 
   create_table "compras", force: :cascade do |t|
     t.date "fecha"
-    t.bigint "proveedor_id", null: false
-    t.bigint "tipo_factura_id", null: false
     t.integer "num_fact"
-    t.string "estado"
+    t.float "total"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["proveedor_id"], name: "index_compras_on_proveedor_id"
-    t.index ["tipo_factura_id"], name: "index_compras_on_tipo_factura_id"
   end
 
   create_table "detalle_compras", force: :cascade do |t|
-    t.bigint "compra_id", null: false
     t.bigint "repuesto_servicio_id", null: false
     t.float "cantidad"
-    t.float "subtotal"
-    t.float "iva"
     t.float "precio_unitario"
     t.float "precio_venta"
-    t.float "total"
-    t.float "pago"
-    t.float "saldo"
+    t.float "subtotal"
+    t.bigint "compra_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["compra_id"], name: "index_detalle_compras_on_compra_id"
@@ -68,7 +60,6 @@ ActiveRecord::Schema.define(version: 2019_11_06_220840) do
     t.float "cantidad"
     t.float "precio_unitario"
     t.float "subtotal"
-    t.float "total"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["presupuesto_id"], name: "index_detalle_orden_presupuestos_on_presupuesto_id"
@@ -132,20 +123,10 @@ ActiveRecord::Schema.define(version: 2019_11_06_220840) do
     t.index ["mecanico_id"], name: "index_orden_trabajos_on_mecanico_id"
   end
 
-  create_table "pago_facturas", force: :cascade do |t|
-    t.bigint "compra_id", null: false
-    t.bigint "proveedor_id", null: false
-    t.date "fecha"
-    t.float "monto_pago"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["compra_id"], name: "index_pago_facturas_on_compra_id"
-    t.index ["proveedor_id"], name: "index_pago_facturas_on_proveedor_id"
-  end
-
   create_table "presupuestos", force: :cascade do |t|
     t.text "descripcion"
     t.bigint "cliente_id", null: false
+    t.float "total"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["cliente_id"], name: "index_presupuestos_on_cliente_id"
@@ -180,15 +161,16 @@ ActiveRecord::Schema.define(version: 2019_11_06_220840) do
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: ""
+    t.string "username", default: ""
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "username"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["username"], name: "index_users_on_username", unique: true
   end
 
   create_table "vehiculos", force: :cascade do |t|
@@ -221,8 +203,6 @@ ActiveRecord::Schema.define(version: 2019_11_06_220840) do
     t.index ["tipo_factura_id"], name: "index_venta_on_tipo_factura_id"
   end
 
-  add_foreign_key "compras", "proveedors"
-  add_foreign_key "compras", "tipo_facturas"
   add_foreign_key "detalle_compras", "compras"
   add_foreign_key "detalle_compras", "repuesto_servicios"
   add_foreign_key "detalle_orden_presupuestos", "presupuestos"
@@ -233,8 +213,6 @@ ActiveRecord::Schema.define(version: 2019_11_06_220840) do
   add_foreign_key "mecanicos", "empleados"
   add_foreign_key "orden_trabajos", "clientes"
   add_foreign_key "orden_trabajos", "mecanicos"
-  add_foreign_key "pago_facturas", "compras"
-  add_foreign_key "pago_facturas", "proveedors"
   add_foreign_key "presupuestos", "clientes"
   add_foreign_key "vehiculos", "clientes"
   add_foreign_key "venta", "clientes"

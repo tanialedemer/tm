@@ -1,0 +1,35 @@
+<div class="container">
+  <h3 align="center">Presupuesto</h3>
+  <hr>
+  <br>
+<%= link_to '⬅ Lista de Presupuesto', presupuestos_path %>
+<br><br>
+<div class="row">
+  <div class="col-4">
+
+<p>
+  <strong>Número:</strong>
+  <%= @presupuesto.id %>
+</p>
+</div>
+
+<div class="col-4">
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @presupuesto.descripcion %>
+</p>
+</div>
+<div class="col-4">
+
+<p>
+  <strong>Cliente:</strong>
+  <%= @presupuesto.cliente.nombre %>, <%= @presupuesto.cliente.apellido %>
+</p>
+</div>
+</div>
+
+    <div class="filed">
+      <div class="panel-body" id="detalles">
+        <%= (@presupuesto.detalle_orden_presupuestos.count > 0) ? render(partial: 'detalle_presupuesto', locals: { presupuesto: @presupuesto, show_actions: true }) : 'No hay detalles cargados' %>
+      </div>

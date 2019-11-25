@@ -1,14 +1,15 @@
 class Compra < ApplicationRecord
   belongs_to :proveedor
-  belongs_to :tipo_factura
-  has_many :detalle_compras, dependent: :destroy
-  accepts_nested_attributes_for :detalle_compras, reject_if: :detalle_compra_rejectable?, allow_destroy: true
-  validates :proveedor_id, presence: true
+  has_many :detalle_compras, inverse_of: :compra, dependent: :destroy
 
-  enum state: [:draft, :confirmed]
+  validates :fecha , presence: true
+  validates :num_fact , presence: true
 
-  #
-  def total
+  accepts_nested_attributes_for :detalle_compras, reject_if: :detalle_compra_rejectable?,
+									allow_destroy: true
+
+
+	def total
 		details = self.detalle_compras
 
 		total = 0.0
@@ -18,9 +19,9 @@ class Compra < ApplicationRecord
 		total
 	end
 
-  private
+	private
 
-  		def detalle_compra_rejectable?(att)
-  			att[:repuesto_servicio_id].blank? || att[:cantidad].blank? || att[:precio_unitario].blank? || att[:cantidad].to_f <= 0 || att[:precio_unitario].to_f <= 0
-  		end
+		def detalle_compra_rejectable?(att)
+			att[:repuesto_servicio_id].blank? || att[:cantidad].blank? || att[:precio_unitario].blank? || att[:cantidad].to_f <= 0 || att[:precio_unitario].to_f <= 0
+		end
 end

@@ -18,7 +18,7 @@
       <tr>
         <td><%= presupuesto.descripcion %></td>
         <td><%= presupuesto.cliente.nombre %>, <%= presupuesto.cliente.apellido %></td>
-        <td><%= link_to 'Detalles', presupuesto, class:"btn btn-info" %></td>
+        <td><%= link_to 'Detalles', presupuesto_factura_path(presupuesto), class:"btn btn-info" %></td>
         <td><%= link_to 'Editar', edit_presupuesto_path(presupuesto), class:"btn btn-primary" %></td>
         <td><%= link_to 'Eliminar', presupuesto, method: :delete, data: { confirm: 'Está seguro?' }, class:"btn btn-danger" %></td>
       </tr>

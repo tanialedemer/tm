@@ -1,5 +1,5 @@
 
 $("ul.errors").html("");
 
-$("#sale-details").html("<%= escape_javascript(render(partial: 'compras/detalle_compra', locals: { compra: @compra, show_actions: true })) %>");
+$("#sale-details").html("<%= escape_javascript(render(partial: 'detalle_compras/index', locals: { compra: @compra, show_actions: true })) %>");
 $("#new-detail-modal").modal("hide");

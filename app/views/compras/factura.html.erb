@@ -1,0 +1,35 @@
+<%= link_to '⬅ Lista de Compras', compras_path %>
+<h3 align="center">Compra</h3> <br>
+<div class="row">
+	<div class="col-4">
+		<p>
+		  <strong>Fecha:</strong><br>
+			<td><%= @compra.fecha.strftime("%d/%m/%Y") %></td>
+		</p>
+	</div>
+	<div class="col-4">
+		<p>
+		  <strong>Num fact:</strong><br>
+		  <%= @compra.num_fact %>
+		</p>
+	</div>
+</div>
+	<p>
+	  <strong>Proveedor:</strong>
+	  <%= @compra.proveedor.nombre %>
+	</p>
+
+<hr>
+
+
+  <div class="panel-body" id="sale-details">
+          <%= (@compra.detalle_compras.count > 0) ? render(partial: 'detalle_compras/index', locals: { compra: @compra, show_actions: true }) : 'No hay detalles cargados' %>
+        </div>
+        
+        <br>
+<p>
+      <td class="thick-line text-right"><h3><strong>Total:</strong> <%= number_to_currency(@compra.total, unit: "Gs.") %></h3></td>
+</p>
+
+
+ 

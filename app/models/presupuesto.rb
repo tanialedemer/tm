@@ -4,6 +4,8 @@ class Presupuesto < ApplicationRecord
   accepts_nested_attributes_for :detalle_orden_presupuestos,reject_if: :detalle_orden_presupuesto_rejectable?,
    allow_destroy: true
 
+  validates :descripcion, presence: true
+
   def total
     details = self.detalle_orden_presupuestos
 

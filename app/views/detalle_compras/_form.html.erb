@@ -1,49 +1,32 @@
-<div class="modal-body">
-<%= form_for([@compra, @detalle_compra]) do |form| %>
-  <% if @detalle_compra.errors.any? %>
-    <div id="error_explanation">
-  <% end %>
+<%= form_for([@compra,@detalle_compra], remote: true) do |form| %>
 
-  <div class="row">
-    <div class="col-xs-5">
-      <div class="form-group">
-          <%= form.label :repuesto_servicio_id, class: "sr-only" %>
-          <%= form.text_field :repuesto_servicio_id, placeholder: "Artículo", class: "form-control", value: nil %>
-          <%#= form.hidden_field :repuesto_servicio_id %>
-          <%#= hidden_field_tag :descripcion  %>
-      </div>
-    </div>
-    <div class="col-xs-5">
-      <div class="form-group">
-          <%= form.label :cantidad, class: "sr-only" %>
-          <%= form.text_field :cantidad, placeholder: "Cant.", class: "form-control" %>
-      </div>
-    </div>
-    <div class="col-xs-2">
-      <div class="form-group">
-          <%= form.label :precio_unitario, class: "sr-only" %>
-          <%= form.text_field :precio_unitario, placeholder: "Precio Unitario", class: "form-control" %>
-      </div>
-    </div>
-    <div class="col-xs-2">
-      <div class="form-group">
-          <%= form.label :precio_venta, class: "sr-only" %>
-          <%= form.text_field :precio_venta, placeholder: "Precio Venta", class: "form-control" %>
-      </div>
-    </div>
-  <div class="col-xs-2">
-    <div class="form-group">
-        <%= form.label :subtotal, class: "sr-only" %>
-        <%= form.text_field :subtotal, placeholder: "0", class: "form-control", disabled: true %>
-    </div>
+<div  align="center">
+  <div class="col-12">
+  <div class="form-group">
+    <%= form.text_field :repuesto_servicio_id , placeholder: 'Artículo', class: 'form-control'%>
+  </div>
+  </div>
+  <div class="col-12">
+  <div class="form-group">
+    <%= form.text_field :cantidad, placeholder: 'Cantidad', class: 'form-control' %>
+  </div>
+  </div>
+
+  <div class="col-12">
+  <div class="form-group">
+    <%= form.text_field :precio_unitario, placeholder: 'Precio Unitario', class: 'form-control' %>
+  </div>
+  </div>
+  <div class="col-12">
+  <div class="form-group">
+    <%= form.text_field :precio_venta, placeholder: 'Precio Venta', class: 'form-control' %>
+  </div>
   </div>
 </div>
+<br>
   <div class="modal-footer">
-    <% message = (action_name == 'edit') ? "Volver" : "Aceptar" %>
-       <%= form.submit message, class: "btn btn-success" %>
-
-  <%= link_to "Cancelar", "#", class: "btn btn-danger", "data-dismiss": "modal" %>
+  <div class="actions">
+    <%= form.submit 'Guardar', class: 'btn btn-success form-control' %>
   </div>
-</div>
+  </div>
 <% end %>
-</div>

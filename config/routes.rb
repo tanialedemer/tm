@@ -1,17 +1,23 @@
 Rails.application.routes.draw do
 
+  resources :compras do
+    resources :detalle_compras
+  end
+
+  get 'compra/:id/factura/', to: 'compras#factura', as: 'compra_factura'
+  get 'presupuesto/:id/factura/', to: 'presupuestos#factura', as: 'presupuesto_factura'
+
+
   get '/items_suggestion', to: 'items_suggestion#index'
   get '/validate_suggested_item', to: 'validate_suggested_item#index'
   # get 'repuesto_serviciosuggestion/index'
 
   resources :payments do
-    resources :payment_details
-  end
+    end
 
 
   resources :compras do
-    resources :detalle_compras
-  end
+    end
 
   resources :presupuestos do
     resources :detalle_orden_presupuestos
@@ -27,7 +33,6 @@ Rails.application.routes.draw do
   end
 
   resources :venta
-  resources :pago_facturas
   resources :vehiculos
   resources :tipo_facturas
   resources :repuesto_servicios

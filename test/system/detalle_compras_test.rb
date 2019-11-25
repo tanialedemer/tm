@@ -16,14 +16,10 @@ class DetalleComprasTest < ApplicationSystemTestCase
 
     fill_in "Cantidad", with: @detalle_compra.cantidad
     fill_in "Compra", with: @detalle_compra.compra_id
-    fill_in "Iva", with: @detalle_compra.iva
-    fill_in "Pago", with: @detalle_compra.pago
     fill_in "Precio unitario", with: @detalle_compra.precio_unitario
     fill_in "Precio venta", with: @detalle_compra.precio_venta
     fill_in "Repuesto servicio", with: @detalle_compra.repuesto_servicio_id
-    fill_in "Saldo", with: @detalle_compra.saldo
     fill_in "Subtotal", with: @detalle_compra.subtotal
-    fill_in "Total", with: @detalle_compra.total
     click_on "Create Detalle compra"
 
     assert_text "Detalle compra was successfully created"
@@ -36,14 +32,10 @@ class DetalleComprasTest < ApplicationSystemTestCase
 
     fill_in "Cantidad", with: @detalle_compra.cantidad
     fill_in "Compra", with: @detalle_compra.compra_id
-    fill_in "Iva", with: @detalle_compra.iva
-    fill_in "Pago", with: @detalle_compra.pago
     fill_in "Precio unitario", with: @detalle_compra.precio_unitario
     fill_in "Precio venta", with: @detalle_compra.precio_venta
     fill_in "Repuesto servicio", with: @detalle_compra.repuesto_servicio_id
-    fill_in "Saldo", with: @detalle_compra.saldo
     fill_in "Subtotal", with: @detalle_compra.subtotal
-    fill_in "Total", with: @detalle_compra.total
     click_on "Update Detalle compra"
 
     assert_text "Detalle compra was successfully updated"

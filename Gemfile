@@ -89,3 +89,5 @@ gem 'i18n', '~> 1.6'
 #autocompletado
 gem 'jquery-ui-rails'
 gem 'rails-jquery-autocomplete'
+# For search in orders
+gem "select2-rails"

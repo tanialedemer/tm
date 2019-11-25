@@ -1,5 +1,5 @@
 class PresupuestosController < ApplicationController
-  before_action :set_presupuesto, only: [:show, :edit, :update, :destroy]
+  before_action :set_presupuesto, only: [:show, :edit, :update, :destroy, :factura]
 
   # GET /presupuestos
   # GET /presupuestos.json
@@ -12,7 +12,8 @@ class PresupuestosController < ApplicationController
   def show
     @detalle_orden_presupuesto = DetalleOrdenPresupuesto.new
   end
-
+  def factura 
+  end
   # GET /presupuestos/new
   def new
     @presupuesto = Presupuesto.new

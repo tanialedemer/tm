@@ -1,5 +1,5 @@
 class ComprasController < ApplicationController
-  before_action :set_compra, except: [:index, :new, :create]
+  before_action :set_compra, only: [:show, :edit, :update, :destroy, :factura]
 
   # GET /compras
   # GET /compras.json
@@ -13,11 +13,13 @@ class ComprasController < ApplicationController
     @detalle_compra = DetalleCompra.new
   end
 
+  def factura
+    @compra = Compra.find(params[:id])
+  end
+
   # GET /compras/new
   def new
-    last_compra = Compra.where(estado: "confirmed").maximum('num_fact')
-    number =  (last_compra != nil) ? last_compra + 1 : 1
-    @compra = Compra.new(fecha: Date::current, num_fact: number, estado: "draft")
+    @compra = Compra.new(fecha: Date::current)
     @compra.detalle_compras.build
     params[:compra_id] = @compra.id.to_s
   end
@@ -33,7 +35,7 @@ class ComprasController < ApplicationController
 
     respond_to do |format|
       if @compra.save
-        format.html { redirect_to @compra, notice: 'Compra fue creado con éxito.' }
+        format.html { redirect_to @compra, notice: 'Compra was successfully created.' }
         format.json { render :show, status: :created, location: @compra }
       else
         format.html { render :new }
@@ -47,7 +49,7 @@ class ComprasController < ApplicationController
   def update
     respond_to do |format|
       if @compra.update(compra_params)
-        format.html { redirect_to @compra, notice: 'Compra fue actualizado con éxito.' }
+        format.html { redirect_to @compra, notice: 'Compra was successfully updated.' }
         format.json { render :show, status: :ok, location: @compra }
       else
         format.html { render :edit }
@@ -61,7 +63,7 @@ class ComprasController < ApplicationController
   def destroy
     @compra.destroy
     respond_to do |format|
-      format.html { redirect_to compras_url, notice: 'Compra fue eliminado con éxito.' }
+      format.html { redirect_to compras_url, notice: 'Compra was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -74,7 +76,6 @@ class ComprasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def compra_params
-      params.require(:compra).permit(:fecha, :proveedor_id, :tipo_factura_id, :num_fact, :estado,
-      :detalle_compras_attributes => [:id,:compra_id, :repuesto_servicio_id, :cantidad, :subtotal, :iva, :precio_unitario, :precio_venta, :total, :pago, :saldo, :_destroy])
+      params.require(:compra).permit(:fecha, :proveedor_id, :num_fact, :total)
     end
 end

@@ -17,7 +17,7 @@ class DetalleComprasControllerTest < ActionDispatch::IntegrationTest
 
   test "should create detalle_compra" do
     assert_difference('DetalleCompra.count') do
-      post detalle_compras_url, params: { detalle_compra: { cantidad: @detalle_compra.cantidad, compra_id: @detalle_compra.compra_id, iva: @detalle_compra.iva, pago: @detalle_compra.pago, precio_unitario: @detalle_compra.precio_unitario, precio_venta: @detalle_compra.precio_venta, repuesto_servicio_id: @detalle_compra.repuesto_servicio_id, saldo: @detalle_compra.saldo, subtotal: @detalle_compra.subtotal, total: @detalle_compra.total } }
+      post detalle_compras_url, params: { detalle_compra: { cantidad: @detalle_compra.cantidad, compra_id: @detalle_compra.compra_id, precio_unitario: @detalle_compra.precio_unitario, precio_venta: @detalle_compra.precio_venta, repuesto_servicio_id: @detalle_compra.repuesto_servicio_id, subtotal: @detalle_compra.subtotal } }
     end
 
     assert_redirected_to detalle_compra_url(DetalleCompra.last)
@@ -34,7 +34,7 @@ class DetalleComprasControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update detalle_compra" do
-    patch detalle_compra_url(@detalle_compra), params: { detalle_compra: { cantidad: @detalle_compra.cantidad, compra_id: @detalle_compra.compra_id, iva: @detalle_compra.iva, pago: @detalle_compra.pago, precio_unitario: @detalle_compra.precio_unitario, precio_venta: @detalle_compra.precio_venta, repuesto_servicio_id: @detalle_compra.repuesto_servicio_id, saldo: @detalle_compra.saldo, subtotal: @detalle_compra.subtotal, total: @detalle_compra.total } }
+    patch detalle_compra_url(@detalle_compra), params: { detalle_compra: { cantidad: @detalle_compra.cantidad, compra_id: @detalle_compra.compra_id, precio_unitario: @detalle_compra.precio_unitario, precio_venta: @detalle_compra.precio_venta, repuesto_servicio_id: @detalle_compra.repuesto_servicio_id, subtotal: @detalle_compra.subtotal } }
     assert_redirected_to detalle_compra_url(@detalle_compra)
   end
 

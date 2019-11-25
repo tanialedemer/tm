@@ -1,84 +1,56 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="panel-body">
-      <div class="row">
-        <div class="col-3">
-          <strong>Número de Factura:</strong>
-          <%= @compra.num_fact %>
-        </div>
-
-        <div class="col-3">
-          <strong>Fecha:</strong>
-          <%= @compra.fecha %>
-        </div>
-        <div class="col-3">
-          <strong>Estado:</strong>
-          <%= @compra.estado %>
-        </div>
-
-    <div class="col-3">
-      <strong>Tipo factura:</strong>
-      <%= @compra.tipo_factura.descripcion %>
-    </div>
-      </div>
-      <hr>
-      <br>
-
-      <div class="row">
-        <div class="col-8">
-          <strong>Proveedor:</strong>
-          <%= @compra.proveedor.nombre %>
-        </div>
-      </div>
-      </div>
-      </div>
-      <hr>
-      <br>
-
-
-    <div class="filed">
-      <div class="panel-body" id="sale-details">
-        <%= (@compra.detalle_compras.count > 0) ? render(partial: 'detalle_compra', locals: { compra: @compra, show_actions: true }) : 'No hay detalles cargados' %>
-      </div>
-      <!-- Button trigger modal -->
-      <center>
-      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
-        Agregar Detalles
-      </button>
-      </center>
-
-<br>
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Detalles</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <%= render "detalle_compras/form" %>
-      </div>
-    </div>
-  </div>
+<%= link_to '⬅ Lista de Compras', compras_path %>
+<h3 align="center">Compra</h3> <br>
+<div class="row">
+	<div class="col-4">
+		<p>
+		  <strong>Fecha:</strong><br>
+			<td><%= @compra.fecha.strftime("%d/%m/%Y") %></td>
+		</p>
+	</div>
+	<div class="col-4">
+		<p>
+		  <strong>Num fact:</strong><br>
+		  <%= @compra.num_fact %>
+		</p>
+	</div>
 </div>
-    </div>
+	<p>
+	  <strong>Proveedor:</strong>
+	  <%= @compra.proveedor.nombre %>
+	</p>
+
 <hr>
-    <footer>
-      <div class="container-fluid">
-      <%= form_for([@compra, @detalle_compra]) do |form| %>
-      <div class="row">
-        <div class="col-2">
-            <%=form.hidden_field :total, class:"form-control", disabled: true, value: @compra.total%>
+
+
+  <div class="panel-body" id="sale-details">
+          <%= (@compra.detalle_compras.count > 0) ? render(partial: 'detalle_compras/index', locals: { compra: @compra, show_actions: true }) : 'No hay detalles cargados' %>
+        </div>
+        <div align="center">
+          <div class="col-xs-2 col-xs-offset-5 text-center">
+            <button class="btn btn-primary" data-toggle="modal" data-target="#modalProduct">Agregar producto</button>
+          </div>
+        </div>
+        <br>
+<p>
+      <td class="thick-line text-right"><h3><strong>Total:</strong> <%= number_to_currency(@compra.total, unit: "Gs.") %></h3></td>
+</p>
+
+<%= link_to 'Salir sin Guardar', @detalle_compra.compra, method: :delete, data: { confirm: 'Está seguro? Los datos no se guardarán.' } %>
+
+
+   <!-- Modal -->
+      <div class="modal fade" id="modalProduct" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Agregar producto</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" id="form_product">
+              <%= render 'detalle_compras/form', detalle_compra: @detalle_compra, compra: @compra %>
+            </div>
+          </div>
         </div>
       </div>
-  </div>
-  <br>
-  <%= form.submit "Guardar" , class: 'btn btn-primary' %>
-
-  <%#= link_to 'Guardar', new_compra_detalle_compra_path(@detalle_compra) %>
-  <%#= link_to 'Volver atrás', destroy_compra_detalle_compras_path, notice: {"Se perderán los datos"} %>
-      <%end%>
-    </footer>

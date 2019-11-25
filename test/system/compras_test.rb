@@ -14,11 +14,10 @@ class ComprasTest < ApplicationSystemTestCase
     visit compras_url
     click_on "New Compra"
 
-    fill_in "Estado", with: @compra.estado
     fill_in "Fecha", with: @compra.fecha
     fill_in "Num fact", with: @compra.num_fact
-    fill_in "Proveedor", with: @compra.proveedor_id
-    fill_in "Tipo factura", with: @compra.tipo_factura_id
+    fill_in "Proveedor id", with: @compra.proveedor_id_id
+    fill_in "Total", with: @compra.total
     click_on "Create Compra"
 
     assert_text "Compra was successfully created"
@@ -29,11 +28,10 @@ class ComprasTest < ApplicationSystemTestCase
     visit compras_url
     click_on "Edit", match: :first
 
-    fill_in "Estado", with: @compra.estado
     fill_in "Fecha", with: @compra.fecha
     fill_in "Num fact", with: @compra.num_fact
-    fill_in "Proveedor", with: @compra.proveedor_id
-    fill_in "Tipo factura", with: @compra.tipo_factura_id
+    fill_in "Proveedor id", with: @compra.proveedor_id_id
+    fill_in "Total", with: @compra.total
     click_on "Update Compra"
 
     assert_text "Compra was successfully updated"

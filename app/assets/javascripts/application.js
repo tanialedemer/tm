@@ -13,6 +13,7 @@
 //= require 'bootstrap-sass-official'
 //= require cocoon
 //= require chosen
+//= require select2
 //= require bootstrap-modal
 //= require bootstrap-modalmanager
 //= require 'typeahead.js.js'

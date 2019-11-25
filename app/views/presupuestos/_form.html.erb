@@ -1,3 +1,4 @@
+<div class="container">
 <%= form_with(model: presupuesto, local: true) do |form| %>
   <% if presupuesto.errors.any? %>
     <div id="error_explanation">
@@ -11,17 +12,19 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :descripcion %>
-    <%= form.text_area :descripcion %>
+   <div class="form-group">
+    <%= form.label :cliente_id ,"Cliente"%> <br>
+    <%= form.collection_select :cliente_id, Cliente.order(:nombre), :id, :nombre,class: "chosen-select form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :cliente_id %>
-    <%= form.text_field :cliente_id %>
+  <div class="form-group">
+    <%= form.label :descripcion %>
+    <%= form.text_area :descripcion, class: 'form-control' %>
   </div>
+
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Siguiente', class: 'btn btn-success' %>
   </div>
 <% end %>
+</div>

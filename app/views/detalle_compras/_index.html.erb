@@ -1,12 +1,32 @@
-<% @compra.detalle_compras.each do |detail| %>
-	<tr>
-		<td><%= detail.repuesto_servicio.descripcion %></td>
-		<td class="text-right"><%= detail.cantidad %></td>
-		<td class="text-right"><%= number_to_currency(detail.precio_unitario, unit: "Gs.") %></td>
-    <td class="text-right"><%= number_to_currency(detail.precio_venta, unit: "Gs.") %></td>
-		<td class="text-right"><%= number_to_currency(detail.subtotal, unit: "Gs.") %></td>
-		<% if show_actions %>
-			<td><%= link_to "Eliminar", compra_detalle_compra_path(detail.compra.id, detail.id), method: :delete, remote: true%> </td>
-		<% end %>
-	</tr>
-<% end %>
+<div align="center">
+<p>Detalle Compras</p>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Repuesto servicio</th>
+      <th>Cantidad</th>
+      <th>Precio unitario</th>
+      <th>Precio venta</th>
+      <th>Subtotal</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @compra.detalle_compras.each do |detalle_compra| %>
+      <tr>
+        <td><%= detalle_compra.repuesto_servicio.descripcion %></td>
+        <td><%= detalle_compra.cantidad %></td>
+        <td><%= detalle_compra.precio_unitario %></td>
+        <td><%= detalle_compra.precio_venta %></td>
+        <td><%= detalle_compra.subtotal %></td>
+        <td><%= link_to 'Eliminar', detalle_compra, method: :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+</div>
+<%#= link_to 'New Detalle Compra', new_detalle_compra_path %>
