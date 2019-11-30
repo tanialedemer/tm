@@ -1,4 +1,5 @@
 class DetalleCompra < ApplicationRecord
+
   belongs_to :repuesto_servicio
   belongs_to :compra
 
@@ -6,6 +7,8 @@ class DetalleCompra < ApplicationRecord
   validates :cantidad, presence: true
   validates :precio_unitario, presence: true
   validates :precio_venta, presence: true
+  
+  # after_save :sumar_stock
 
 
   def subtotal
@@ -19,4 +22,10 @@ class DetalleCompra < ApplicationRecord
       repuesto_servicio ? repuesto_servicio.costo : 0
     end
   end
+
+  # def sumar_stock
+  #   self.repuesto_servicio.stock += self.cantidad
+  #   self.repuesto_servicio.save
+  # end
+
 end

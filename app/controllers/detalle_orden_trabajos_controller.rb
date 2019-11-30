@@ -7,6 +7,7 @@ class DetalleOrdenTrabajosController < ApplicationController
   # GET /detalle_orden_trabajos.json
   def index
     @detalle_orden_trabajos = DetalleOrdenTrabajo.all
+    @detalle_orden_trabajos.repuesto_servicio = RepuestoServicio.first
   end
 
   # GET /detalle_orden_trabajos/1

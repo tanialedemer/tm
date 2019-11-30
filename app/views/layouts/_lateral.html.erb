@@ -1,125 +1,58 @@
-<!DOCTYPE html><html class="menu">
-<html>
 
-<head>
+<div id='cssmenu'>
+<ul>
+   <li class='active has-sub'><a href='#'>Compra</a>
+      <ul>
+         <li >
+          <a>
+           <%= link_to 'Proveedor', proveedors_path%></a>
+         </li>
+         <li >
+           <%= link_to 'Repuesto o Servicio', repuesto_servicios_path%>
+         </li>
+         <li >
+           <%= link_to 'Factura', compras_path%>
+         </li>
+         <li >
+           <%= link_to 'Gasto', gastos_path%>
+         </li>
+      </ul>
+   </li>
 
-<meta charset="utf-8"/>
-<meta http-equiv="X-UA-Compatible" content=="IE=edge"/>
-<meta name="google" value="notranslate"/>
-<title>Side Menu</title>
-<link rel="stylesheet" type="text/css" href="css/menu.css">
-<link rel="stylesheet" type="text/css" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-</head>
-<body>
+   <li class='active has-sub'><a href='#'>Venta</a>
+      <ul>
+         <li >
+           <%= link_to 'Cliente', clientes_path%>
+         </li>
+         <li >
+           <%= link_to 'Orden de Trabajo', orden_trabajos_path%>
+         </li>
+         <li >
+           <%= link_to 'Presupuesto', presupuestos_path%>
+         </li>
+         <li >
+           <%= link_to 'Vehiculo', vehiculos_path%>
+         </li>
+      </ul>
+   </li>
 
+      <li class='active has-sub'><a href='#'>Finanza</a>
+      <ul>
+         <li >
+           <%= link_to 'Venta', lista_venta_index_path%>
+         </li>
+      </ul>
+   </li>
 
-
-<nav class="main-menu">
-
- <div>
-    <!-- <a class="logo" href="#">
-    </a> -->
-    <h3 class="muted">MOTORBOX</h3>
-  </div>
-
-
-<div class="scrollbar" id="style-1">
-  <!-- <ul>
-    <li>
-      <a>
-        <i class="fa fa-home fa-lg"></i>
-        <span class="nav-text">Compras</span><br>
-            <li>
-  <span class="nav-text"><%#= link_to "Proveedor" , proveedor_index_path %></span>
-</li>
-<li>
-  <span class="nav-text"><%#= link_to "Repuesto o Servicio" , repuesto_servicio_index_path %></span>
-</li>
-<li>
-  <span class="nav-text"><%#= link_to "Factura de Compra" , compra_index_path %></span>
-</li>
-</a>
-
-</li> -->
-<div class="dropdown">
-  <button class="dropbtn">
-    <li>
-      <a>
-        <i class="fa fa-shopping-cart"></i>
-          <span class="nav-text">Compras</span>
-  </button>
-  <div class="dropdown-content">
-    <a>
-      <span class="nav-text"><%= link_to "Proveedor" , proveedors_path , class: "btn" %></span></a>
-    <a><%= link_to "Repuesto o Servicio" , repuesto_servicios_path, class: "btn" %></a>
-    <a>	  <span class="nav-text"><%= link_to "Factura de Compra" , compras_path , class: "btn" %></span></a>
-    <a>	  <span class="nav-text"><%= link_to "Gastos" , gastos_path , class: "btn" %></span></a>
-
-
-  </div>
+     <li class='active has-sub'><a href='#'>Settings</a>
+      <ul>
+         <li >
+           <%= link_to 'Categoria', categoria_path%>
+         </li>
+         <li >
+           <%= link_to 'Empleados', empleados_path%>
+         </li>
+      </ul>
+   </li>
+</ul>
 </div>
-
-<div class="dropdown">
-  <button class="dropbtn">
-    <li>
-      <a>
-        <i class="fa fa-archive"></i>
-          <span class="nav-text">Ventas</span>
-  </button>
-  <div class="dropdown-content">
-    <a> <span class="nav-text"><%= link_to "Cliente" , clientes_path , class: "btn" %></span> </a>
-    <a>	  <span class="nav-text"><%= link_to "Tipo de Factura" , tipo_facturas_path , class: "btn" %></span></a>
-    <a>	  <span class="nav-text"><%= link_to "Vehiculo" , vehiculos_path , class: "btn" %></span></a>
-    <a>	  <span class="nav-text"><%= link_to "Presupuesto", presupuestos_path ,class: "btn" %> </span></a>
-    <a>	  <span class="nav-text"><%= link_to "Orden Trabajo", orden_trabajos_path ,class: "btn" %> </span></a>
-
-  </div>
-</div>
-
-<!--
-<li>
-<a>
-<i class="fa fa-user fa-lg"></i>
-<span class="nav-text">Ventas</span>
-<li>
-  <span class="nav-text"><%#= link_to "Cliente" , cliente_index_path %></span>
-</li>
-<li>
-  <span class="nav-text"><%#= link_to "Tipo de Factura" , tipo_facturas_path %></span>
-</li>
-<li>
-  <span class="nav-text"><%#= link_to "Vehiculo" , vehiculo_index_path %></span>
-</li>
-</a>
-</li> -->
-
-
-  <div class="dropdown">
-    <button class="dropbtn">
-      <li>
-        <a>
-          <i class="fa  fa-th-list"></i>
-            <span class="nav-text">Finanza</span>
-    </button>
-    <div class="dropdown-content">
-      <a> <span class="nav-text"><%#= link_to "Cliente" , cliente_index_path , class: "btn" %></span> </a>
-      <a>	  <span class="nav-text"><%#= link_to "Tipo de Factura" , tipo_facturas_path , class: "btn" %></span></a>
-      <a>	  <span class="nav-text"><%#= link_to "Vehiculo" , vehiculo_index_path , class: "btn" %></span></a>
-    </div>
-  </div>
-
-
-<!--
-<li>
-<a>
-<i class="fa fa-envelope-o fa-lg"></i>
-<span class="nav-text">Finanza</span>
-</a>
-</li> -->
-
-</div>
-<script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4ff17589278d8b3a"></script>
-
-</body>
-</html>

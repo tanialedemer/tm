@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_23_165856) do
+ActiveRecord::Schema.define(version: 2019_11_25_151000) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 2019_11_23_165856) do
     t.float "total"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "proveedor_id"
   end
 
   create_table "detalle_compras", force: :cascade do |t|
@@ -88,11 +89,9 @@ ActiveRecord::Schema.define(version: 2019_11_23_165856) do
     t.string "especialidad"
     t.date "fecha_contratacion"
     t.float "salario"
-    t.bigint "user_id", null: false
     t.text "direccion"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_empleados_on_user_id"
   end
 
   create_table "gastos", force: :cascade do |t|
@@ -114,13 +113,13 @@ ActiveRecord::Schema.define(version: 2019_11_23_165856) do
 
   create_table "orden_trabajos", force: :cascade do |t|
     t.text "descripcion"
-    t.bigint "mecanico_id", null: false
+    t.bigint "empleado_id", null: false
     t.bigint "cliente_id", null: false
     t.integer "num_orden"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["cliente_id"], name: "index_orden_trabajos_on_cliente_id"
-    t.index ["mecanico_id"], name: "index_orden_trabajos_on_mecanico_id"
+    t.index ["empleado_id"], name: "index_orden_trabajos_on_mecanico_id"
   end
 
   create_table "presupuestos", force: :cascade do |t|
@@ -153,6 +152,16 @@ ActiveRecord::Schema.define(version: 2019_11_23_165856) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "roles", force: :cascade do |t|
+    t.string "name"
+    t.string "resource_type"
+    t.bigint "resource_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
+    t.index ["resource_type", "resource_id"], name: "index_roles_on_resource_type_and_resource_id"
+  end
+
   create_table "tipo_facturas", force: :cascade do |t|
     t.string "descripcion"
     t.datetime "created_at", precision: 6, null: false
@@ -173,6 +182,14 @@ ActiveRecord::Schema.define(version: 2019_11_23_165856) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  create_table "users_roles", id: false, force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "role_id"
+    t.index ["role_id"], name: "index_users_roles_on_role_id"
+    t.index ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id"
+    t.index ["user_id"], name: "index_users_roles_on_user_id"
+  end
+
   create_table "vehiculos", force: :cascade do |t|
     t.string "modelo"
     t.string "color"
@@ -188,7 +205,6 @@ ActiveRecord::Schema.define(version: 2019_11_23_165856) do
   end
 
   create_table "venta", force: :cascade do |t|
-    t.bigint "tipo_factura_id", null: false
     t.bigint "cliente_id", null: false
     t.date "fecha"
     t.bigint "orden_trabajo_id", null: false
@@ -200,7 +216,6 @@ ActiveRecord::Schema.define(version: 2019_11_23_165856) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["cliente_id"], name: "index_venta_on_cliente_id"
     t.index ["orden_trabajo_id"], name: "index_venta_on_orden_trabajo_id"
-    t.index ["tipo_factura_id"], name: "index_venta_on_tipo_factura_id"
   end
 
   add_foreign_key "detalle_compras", "compras"
@@ -209,13 +224,11 @@ ActiveRecord::Schema.define(version: 2019_11_23_165856) do
   add_foreign_key "detalle_orden_presupuestos", "repuesto_servicios"
   add_foreign_key "detalle_orden_trabajos", "orden_trabajos"
   add_foreign_key "detalle_orden_trabajos", "repuesto_servicios"
-  add_foreign_key "empleados", "users"
   add_foreign_key "mecanicos", "empleados"
   add_foreign_key "orden_trabajos", "clientes"
-  add_foreign_key "orden_trabajos", "mecanicos"
+  add_foreign_key "orden_trabajos", "mecanicos", column: "empleado_id"
   add_foreign_key "presupuestos", "clientes"
   add_foreign_key "vehiculos", "clientes"
   add_foreign_key "venta", "clientes"
   add_foreign_key "venta", "orden_trabajos"
-  add_foreign_key "venta", "tipo_facturas"
 end

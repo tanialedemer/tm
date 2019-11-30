@@ -13,8 +13,12 @@ class VentaController < ApplicationController
   end
 
   # GET /venta/new
-  def new
-    @ventum = Ventum.new
+  def new 
+    @orden_trabajo_id = params[:orden_trabajo_id]
+    @total = params[:total]
+    @cliente_id = params[:cliente_id]
+
+    @ventum = Ventum.new(orden_trabajo_id: @orden_trabajo_id, fecha: Date::current, total: @total, cliente_id: @cliente_id)
   end
 
   # GET /venta/1/edit
@@ -69,6 +73,6 @@ class VentaController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ventum_params
-      params.require(:ventum).permit(:tipo_factura_id, :cliente_id, :fecha, :orden_trabajo_id, :estado, :subtotal, :total, :saldo)
+      params.require(:ventum).permit(:cliente_id, :fecha, :orden_trabajo_id, :estado, :subtotal, :total, :saldo)
     end
 end

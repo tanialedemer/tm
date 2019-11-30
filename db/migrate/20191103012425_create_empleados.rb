@@ -9,7 +9,6 @@ class CreateEmpleados < ActiveRecord::Migration[6.0]
       t.string :especialidad
       t.date :fecha_contratacion
       t.float :salario
-      t.references :user, null: false, foreign_key: true
       t.text :direccion
 
       t.timestamps

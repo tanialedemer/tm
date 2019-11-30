@@ -59,7 +59,8 @@ gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
 #devise
 gem 'devise-bootstrap-views', '~> 1.1'
 gem 'devise', '~> 4.7', '>= 4.7.1'
-
+gem 'cancancan', '~> 3.0', '>= 3.0.1'
+gem 'rolify', '~> 5.2'
 #otras
 gem 'bootstrap-generators', '~> 3.3', '>= 3.3.4'
 gem "therubyracer", platforms: :ruby
@@ -91,3 +92,6 @@ gem 'jquery-ui-rails'
 gem 'rails-jquery-autocomplete'
 # For search in orders
 gem "select2-rails"
+gem 'coffee-rails', '~> 5.0'
+# For search
+gem 'ransack', github: 'activerecord-hackery/ransack'

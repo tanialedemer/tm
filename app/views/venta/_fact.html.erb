@@ -1,0 +1,29 @@
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @orden_trabajo.descripcion %>
+</p>
+
+<p>
+  <strong>Mecanico:</strong>
+  <%= @orden_trabajo.empleado.nombre %>
+</p>
+
+<p>
+  <strong>Cliente:</strong>
+  <%= @orden_trabajo.cliente.nombre %>
+</p>
+
+<p>
+  <strong>Num orden:</strong>
+  <%= @orden_trabajo.num_orden %>
+</p>
+
+
+    <div class="filed">
+      <div class="panel-body" id="detalles">
+        <%= (@orden_trabajo.detalle_orden_trabajos.count > 0) ? render(partial: 'detalle_trabajo', locals: { orden_trabajo: @orden_trabajo, show_actions: true }) : 'No hay detalles cargados' %>
+      </div>
+
+<%= link_to 'Facturar', new_ventum_path(orden_trabajo_id: @orden_trabajo, cliente_id: @orden_trabajo.cliente_id, total: @orden_trabajo.total) %>
+

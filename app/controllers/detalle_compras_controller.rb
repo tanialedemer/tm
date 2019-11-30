@@ -45,11 +45,11 @@ class DetalleComprasController < ApplicationController
       @detalle_compra.save!
     else
       detalle_compra = DetalleCompra.new(detalle_compra_params)
-      
       @compra.detalle_compras << detalle_compra
     end
 
     respond_to do |format|
+      
       if @compra.save
         format.html {redirect_to @compra, notice: 'El detalle se agregó correctamente.'}
         format.json {render :show, status: :created, location: @detalle_compra}

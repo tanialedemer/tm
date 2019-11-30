@@ -1,0 +1,11 @@
+<% @orden_trabajo.detalle_orden_trabajos.each do |detail| %>
+  <tr>
+    <td><%= detail.repuesto_servicio.descripcion %></td>
+    <td class="text-right"><%= detail.cantidad %></td>
+    <td class="text-right"><%= number_to_currency(detail.precio_venta, unit: "Gs.") %></td>
+    <td class="text-right"><%= number_to_currency(detail.subtotal, unit: "Gs.") %></td>
+    <% if show_actions %>
+      <td><%= link_to "Eliminar", orden_trabajo_detalle_orden_trabajo_path(detail.orden_trabajo.id, detail.id), method: :delete, remote: true %> </td>
+    <% end %>
+  </tr>
+<% end %>

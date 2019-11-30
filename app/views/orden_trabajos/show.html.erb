@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Descripcion:</strong>
   <%= @orden_trabajo.descripcion %>
@@ -7,18 +5,50 @@
 
 <p>
   <strong>Mecanico:</strong>
-  <%= @orden_trabajo.mecanico_id %>
+  <%= @orden_trabajo.empleado.nombre %>
 </p>
 
 <p>
   <strong>Cliente:</strong>
-  <%= @orden_trabajo.cliente_id %>
+  <%= @orden_trabajo.cliente.nombre %>
 </p>
 
 <p>
   <strong>Num orden:</strong>
   <%= @orden_trabajo.num_orden %>
 </p>
+
+
+    <div class="filed">
+      <div class="panel-body" id="detalles">
+        <%= (@orden_trabajo.detalle_orden_trabajos.count > 0) ? render(partial: 'detalle_trabajo', locals: { orden_trabajo: @orden_trabajo, show_actions: true }) : 'No hay detalles cargados' %>
+      </div>
+      <!-- Button trigger modal -->
+      <center>
+      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+        Agregar Detalles
+      </button>
+      </center>
+
+<br>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Detalles</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= render "detalle_orden_trabajos/form" %>
+      </div>
+    </div>
+  </div>
+</div>
+<%= link_to 'Facturar', orden_trabajo_factura_path(@orden_trabajo) %> |
 
 <%= link_to 'Edit', edit_orden_trabajo_path(@orden_trabajo) %> |
 <%= link_to 'Back', orden_trabajos_path %>

@@ -4,4 +4,5 @@ class Cliente < ApplicationRecord
   validates :apellido, presence: true
   # validates :email, presence: true, email: true
 
+  resourcify
 end

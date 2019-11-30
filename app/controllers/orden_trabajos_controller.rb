@@ -1,5 +1,5 @@
 class OrdenTrabajosController < ApplicationController
-  before_action :set_orden_trabajo, only: [:show, :edit, :update, :destroy]
+  before_action :set_orden_trabajo, only: [:show, :edit, :update, :destroy, :factura]
 
   # GET /orden_trabajos
   # GET /orden_trabajos.json
@@ -12,12 +12,15 @@ class OrdenTrabajosController < ApplicationController
   def show
     @detalle_orden_trabajo = DetalleOrdenTrabajo.new
   end
-
+  
   # GET /orden_trabajos/new
   def new
     @orden_trabajo = OrdenTrabajo.new
   end
 
+  def factura
+
+  end
   # GET /orden_trabajos/1/edit
   def edit
   end
@@ -70,6 +73,6 @@ class OrdenTrabajosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def orden_trabajo_params
-      params.require(:orden_trabajo).permit(:descripcion, :mecanico_id, :cliente_id, :num_orden)
+      params.require(:orden_trabajo).permit(:descripcion, :empleado_id, :cliente_id, :num_orden, :total)
     end
 end

@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
 
+  get 'lista_venta/index'
+  get 'lista_venta/show'
+  # resources :users
   resources :compras do
     resources :detalle_compras
   end
 
+  get 'orden_trabajo/:id/factura/', to: 'orden_trabajos#factura', as: 'orden_trabajo_factura'
   get 'compra/:id/factura/', to: 'compras#factura', as: 'compra_factura'
   get 'presupuesto/:id/factura/', to: 'presupuestos#factura', as: 'presupuesto_factura'
 
@@ -34,7 +38,6 @@ Rails.application.routes.draw do
 
   resources :venta
   resources :vehiculos
-  resources :tipo_facturas
   resources :repuesto_servicios
   resources :categoria
   resources :mecanicos

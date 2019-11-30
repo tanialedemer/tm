@@ -10,26 +10,30 @@
       </ul>
     </div>
   <% end %>
-<div class="col-3">
-  <div class="field">
+  <div class="row">
+<div class="col-4">
+  <div class="form-group">
+    <%= form.label :num_orden, 'Número' %>
     <%= form.number_field :num_orden, class:"form-control", placeholder: "Número de Orden" %>
   </div>
 </div>
+</div>
 
-  <div class="field">
-    <%= form.label :cliente_id %>
-    <%= form.text_field :cliente_id %>
+  <div class="form-group">
+    <%= form.label :cliente_id ,"Cliente"%> <br>
+    <%= form.collection_select :cliente_id, Cliente.order(:nombre), :id, :nombre,class: "chosen-select form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
+    <%= form.label :empleado_id ,"Mecánico Responsable"%> <br>
+    <%= form.collection_select :empleado_id, Empleado.order(:nombre), :id, :nombre,class: "chosen-select form-control" %>
+  </div>
+
+  <div class="form-group">
     <%= form.label :descripcion %>
     <%= form.text_area :descripcion, class:"form-control", placeholder:"Descripción" %>
   </div>
 
-  <div class="field">
-    <%= form.label :mecanico_id %>
-    <%= form.text_field :mecanico_id %>
-  </div>
 
   <div class="actions">
     <%= form.submit "Guardar", class:"btn btn-success" %>

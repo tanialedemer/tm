@@ -1,10 +1,3 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Tipo factura:</strong>
-  <%= @ventum.tipo_factura_id %>
-</p>
-
 <p>
   <strong>Cliente:</strong>
   <%= @ventum.cliente_id %>
@@ -21,24 +14,10 @@
 </p>
 
 <p>
-  <strong>Estado:</strong>
-  <%= @ventum.estado %>
-</p>
-
-<p>
-  <strong>Subtotal:</strong>
-  <%= @ventum.subtotal %>
-</p>
-
-<p>
   <strong>Total:</strong>
   <%= @ventum.total %>
 </p>
 
-<p>
-  <strong>Saldo:</strong>
-  <%= @ventum.saldo %>
-</p>
 
 <%= link_to 'Edit', edit_ventum_path(@ventum) %> |
 <%= link_to 'Back', venta_path %>

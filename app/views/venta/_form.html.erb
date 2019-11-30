@@ -1,7 +1,7 @@
 <%= form_with(model: ventum, local: true) do |form| %>
   <% if ventum.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(ventum.errors.count, "error") %> prohibited this ventum from being saved:</h2>
+      <%= pluralize(ventum.errors.count, "errores") %>
 
       <ul>
         <% ventum.errors.full_messages.each do |message| %>
@@ -12,18 +12,13 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :tipo_factura_id %>
-    <%= form.text_field :tipo_factura_id %>
-  </div>
-
-  <div class="field">
     <%= form.label :cliente_id %>
     <%= form.text_field :cliente_id %>
   </div>
 
   <div class="field">
     <%= form.label :fecha %>
-    <%= form.date_select :fecha %>
+    <%= form.date_field :fecha %>
   </div>
 
   <div class="field">
@@ -32,23 +27,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :estado %>
-    <%= form.text_field :estado %>
-  </div>
-
-  <div class="field">
-    <%= form.label :subtotal %>
-    <%= form.text_field :subtotal %>
-  </div>
-
-  <div class="field">
     <%= form.label :total %>
     <%= form.text_field :total %>
-  </div>
-
-  <div class="field">
-    <%= form.label :saldo %>
-    <%= form.text_field :saldo %>
   </div>
 
   <div class="actions">

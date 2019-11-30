@@ -11,57 +11,45 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :nombre %>
-    <%= form.text_field :nombre %>
+  <div class="form-group">
+    <%= form.text_field :nombre, placeholder: "Nombres" , class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.text_field :apellido, placeholder: "Apellidos" , class: "form-control"%>
   </div>
 
   <div class="field">
-    <%= form.label :apellido %>
-    <%= form.text_field :apellido %>
+    <%= form.label :fecha_nac , "Fecha de Nacimiento"%>
+    <%= form.date_field :fecha_nac, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :fecha_nac %>
-    <%= form.date_select :fecha_nac %>
+  <div class="form-group">
+    <%= form.text_field :documento, placeholder: "Número de Documento" , class: "form-control"%>
   </div>
 
-  <div class="field">
-    <%= form.label :documento %>
-    <%= form.text_field :documento %>
+  <div class="form-group">
+    <%= form.text_field :telefono, placeholder: "Número de Teléfono" , class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :telefono %>
-    <%= form.text_field :telefono %>
+  <div class="form-group">
+    <%= form.text_field :especialidad, placeholder: "Especialidad" , class: "form-control"%>
   </div>
 
-  <div class="field">
-    <%= form.label :especialidad %>
-    <%= form.text_field :especialidad %>
+  <div class="form-group">
+    <%= form.label :fecha_contratacion , "Fecha de Contratación"%>
+    <%= form.date_field :fecha_contratacion, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :fecha_contratacion %>
-    <%= form.date_select :fecha_contratacion %>
+  <div class="form-group">
+    <%= form.text_field :salario, placeholder: "Salario" , class: "form-control"%>
   </div>
 
-  <div class="field">
-    <%= form.label :salario %>
-    <%= form.text_field :salario %>
-  </div>
-
-  <div class="field">
-    <%= form.label :usuario_id %>
-    <%= form.text_field :usuario_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :direccion %>
-    <%= form.text_area :direccion %>
+  <div class="form-group">
+    <%= form.text_field :direccion, placeholder: "Dirección" , class: "form-control" %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Guardar" , class: "btn btn-success form-control"%>
   </div>
 <% end %>

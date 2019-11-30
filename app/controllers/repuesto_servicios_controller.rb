@@ -68,11 +68,12 @@ class RepuestoServiciosController < ApplicationController
   # DELETE /repuesto_servicios/1
   # DELETE /repuesto_servicios/1.json
   def destroy
-    @repuesto_servicio.destroy
-    respond_to do |format|
-      format.html { redirect_to repuesto_servicios_url, notice: 'Repuesto o servicio fue eliminado con éxito.' }
-      format.json { head :no_content }
-    end
+    if @repuesto_servicio.destroy
+            flash[:success] = 'El artículo se ha borrado correctamente.'
+        else
+            flash[:alert] = 'Hubo errores al intentar borrar artículo.'
+        end
+        redirect_to repuesto_servicios_url
   end
 
   private

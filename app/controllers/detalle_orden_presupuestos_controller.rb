@@ -7,7 +7,6 @@ class DetalleOrdenPresupuestosController < ApplicationController
   def index
     @detalle_orden_presupuestos = DetalleOrdenPresupuesto.all
     @detalle_orden_presupuestos.repuesto_servicio = RepuestoServicio.first
-
   end
 
   # GET /detalle_orden_presupuestos/1
