@@ -95,3 +95,7 @@ gem "select2-rails"
 gem 'coffee-rails', '~> 5.0'
 # For search
 gem 'ransack', github: 'activerecord-hackery/ransack'
+gem 'bootstrap-glyphicons', '~> 0.0.1'
+#pdf
+gem 'prawn'
+gem 'prawn-table'

@@ -5,14 +5,13 @@
 // the compiled file.
 //
 //= require jquery
-//= require jquery_ujs
 //= require twitter/bootstrap
-//= require jquery_nested_form
 //= require jquery-readyselector
 //= require turbolinks
 //= require 'bootstrap-sass-official'
 //= require cocoon
 //= require chosen
+//= require bootstrap
 //= require select2
 //= require bootstrap-modal
 //= require bootstrap-modalmanager

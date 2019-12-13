@@ -13,4 +13,20 @@ class OrdenTrabajo < ApplicationRecord
     end
     total
   end
+
+    private
+    def self.generar_folio
+      time, numero_random = Time.new, Random.new
+      orden = time.strftime("%Y%m%d") + "#{numero_random.rand(100)}"
+      if OrdenTrabajo.exists?(num_orden: orden)
+        generar_folio
+      else
+        orden
+      end
+    end
+
+    def self.recientes
+      OrdenTrabajo.order("created_at DESC").limit(9)
+    end
+
 end

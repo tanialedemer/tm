@@ -8,6 +8,7 @@ Bundler.require(*Rails.groups)
 
 module Tm
   class Application < Rails::Application
+    config.assets.paths << "#{Rails}/vendor/assets/fonts"
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
     config.i18n.default_locale = :es

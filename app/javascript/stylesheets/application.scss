@@ -6,6 +6,7 @@
 @import url(https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.10/font/roboto/Roboto-Bold.woff2);
 @import url(https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.10/font/roboto/Roboto-Medium.eot);
 
+
 .fa-fw {width: 2em;}
 
 
@@ -80,9 +81,8 @@ html {
  	color:black;
 
   margin-bottom: 50%;
-  display: flex;
+  display: flex-end;
   flex-wrap: wrap;
-
   align-content: space-between;
   justify-content: space-between;
    margin: 0;
@@ -96,11 +96,14 @@ html {
  }
 
  #container {
-    width: 1000px;
+    width: 85%;
     border: solid 1px #000;
     display: -webkit-flex;
     display: -ms-flexbox;
-    display: flex-end;
+    display: flex-start;
+    padding: 10px;
+    display: table-cell;
+    float: left;
 }
    
 
@@ -727,7 +730,9 @@ body,html{
 
        .panel-collapse div.list-group div.list-group{margin: 0;}
        .panel-collapse div.list-group .list-group a.list-group-item {border-top: 1px solid #ddd;border-bottom: 0;padding-left: 30px;}
- 
+
+/////////////////////////////////////////////////////////////////////////////////// menu 
+
       @import url(http://fonts.googleapis.com/css?family=Raleway:400,200);
 #cssmenu,
 #cssmenu ul,
@@ -745,11 +750,11 @@ body,html{
   box-sizing: border-box;
 }
 #cssmenu {
-  width: 220px;
+  float: left;
   font-family: Raleway, sans-serif;
   color: #ffffff;
   position: relative;
-
+    width: 15%;
 }
 #cssmenu ul ul {
   display: none;

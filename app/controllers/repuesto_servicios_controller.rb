@@ -6,6 +6,14 @@ class RepuestoServiciosController < ApplicationController
   # GET /repuesto_servicios.json
   def index
     @repuesto_servicios = RepuestoServicio.all
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = RepuestoServiciosPdf.new(@repuesto_servicios)
+        send_data pdf.render, filename: 'repuesto_servicios.pdf', type: 'application/pdf', disposition: 'inline'
+      end
+    end
+    
     @page = (params[:page] || 0).to_i
 
    if params[:keywords].present?
@@ -39,7 +47,7 @@ class RepuestoServiciosController < ApplicationController
   # POST /repuesto_servicios.json
   def create
     @repuesto_servicio = RepuestoServicio.new(repuesto_servicio_params)
-
+    @repuesto_servicio.stock=params[:repuesto_servicio][:stock] = 0.0
     respond_to do |format|
       if @repuesto_servicio.save
         format.html { redirect_to @repuesto_servicio, notice: 'Repuesto o servicio fue creado con éxito.' }

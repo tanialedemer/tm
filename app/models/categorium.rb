@@ -1,3 +1,4 @@
 class Categorium < ApplicationRecord
-  validates :descripcion, presence: true
+	has_many :repuesto_servicios
+  	validates :descripcion, presence: true
 end

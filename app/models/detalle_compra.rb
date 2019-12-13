@@ -1,5 +1,8 @@
 class DetalleCompra < ApplicationRecord
 
+  # after_destroy :regresar_al_inventario
+
+
   belongs_to :repuesto_servicio
   belongs_to :compra
 
@@ -7,7 +10,7 @@ class DetalleCompra < ApplicationRecord
   validates :cantidad, presence: true
   validates :precio_unitario, presence: true
   validates :precio_venta, presence: true
-  
+
   # after_save :sumar_stock
 
 
@@ -23,6 +26,13 @@ class DetalleCompra < ApplicationRecord
     end
   end
 
+private
+
+
+    # def regresar_al_inventario
+    #   repuesto_servicio.stock += self.cantidad
+    #   repuesto_servicio.stock.save
+    # end
   # def sumar_stock
   #   self.repuesto_servicio.stock += self.cantidad
   #   self.repuesto_servicio.save

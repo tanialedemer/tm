@@ -9,8 +9,10 @@
 <br>
 <div class="boton_redirect">
   <%= render partial: "pager", locals: { keywords: @keywords, page: @page } %>
-
 </div>
+<%= link_to proveedors_path(:format => 'pdf'), class: "btn btn-outline-dark", :target => "_blank"  do%>
+  <i class="glyphicon glyphicon-print"></i> Imprimir Reporte
+<% end %>
 <!-- lista de proveedores -->
 <div class="table-responsive-md">
 <table class="table table-hover">

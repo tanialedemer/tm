@@ -3,7 +3,7 @@ class CreateRepuestoServicios < ActiveRecord::Migration[6.0]
     create_table :repuesto_servicios do |t|
       t.string :codigo
       t.text :descripcion
-      t.integer :stock
+      t.float :stock, null: false
       t.float :costo
       t.float :precio_venta
       t.string :categoria

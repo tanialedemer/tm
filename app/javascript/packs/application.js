@@ -18,6 +18,7 @@ require("channels")
 import '../stylesheets/application'
 import './bootstrap_custom.js'
 
+
 (function($){
 $(document).ready(function(){
 

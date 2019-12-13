@@ -144,7 +144,7 @@ ActiveRecord::Schema.define(version: 2019_11_25_151000) do
   create_table "repuesto_servicios", force: :cascade do |t|
     t.string "codigo"
     t.text "descripcion"
-    t.integer "stock"
+    t.float "stock"
     t.float "costo"
     t.float "precio_venta"
     t.string "categoria"

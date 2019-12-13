@@ -5,6 +5,14 @@ class ProveedorsController < ApplicationController
   # GET /proveedors.json
   def index
     @proveedors = Proveedor.all
+      respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = ProveedorsPdf.new(@proveedors)
+        send_data pdf.render, filename: 'proveedors.pdf', type: 'application/pdf', disposition: 'inline'
+      end
+    end
+
     @page = (params[:page] || 0).to_i
 
    if params[:keywords].present?

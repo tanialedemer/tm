@@ -29,7 +29,6 @@ class OrdenTrabajosController < ApplicationController
   # POST /orden_trabajos.json
   def create
     @orden_trabajo = OrdenTrabajo.new(orden_trabajo_params)
-
     respond_to do |format|
       if @orden_trabajo.save
         format.html { redirect_to @orden_trabajo, notice: 'Orden trabajo fue creado con éxito.' }

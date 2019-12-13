@@ -6,6 +6,15 @@ class ClientesController < ApplicationController
   # GET /clientes.json
   def index
     @clientes = Cliente.all
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = ClientesPdf.new(@clientes)
+        send_data pdf.render, filename: 'clientes.pdf', type: 'application/pdf', disposition: 'inline'
+      end
+    end
+    
+
     @page = (params[:page] || 0).to_i
 
    if params[:keywords].present?

@@ -8,4 +8,10 @@ class RepuestoServicio < ApplicationRecord
   def item_descripcion
     self.descipcion + self.codigo
   end
+
+  # def initialize(stock=nil)
+  #   attr_with_defaults = {:stock => 0}.merge(stock)
+  #   super(attr_with_defaults)
+  # end
+  
 end

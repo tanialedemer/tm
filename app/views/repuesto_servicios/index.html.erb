@@ -13,6 +13,9 @@
 <%= render partial: "pager", locals: { keywords: @keywords, page: @page } %>
 </div>
 
+<%= link_to repuesto_servicios_path(:format => 'pdf'), class: "btn btn-outline-dark", :target => "_blank"  do%>
+  <i class="glyphicon glyphicon-print"></i> Imprimir Inventario
+<% end %>
 
 <!-- lista de repuesto_servicio -->
 <div class="table-responsive-md">
@@ -35,7 +38,11 @@
       <tr>
         <td><%= repuesto_servicio.codigo %></td>
         <td><%= repuesto_servicio.descripcion %></td>
-        <td><%= repuesto_servicio.stock %></td>
+        <% if repuesto_servicio.categoria == "stock" %>
+          <td><%= repuesto_servicio.stock %></td>
+        <% else %>
+        <td>-</td>
+        <% end %>
         <td><%= repuesto_servicio.costo %></td>
         <td><%= repuesto_servicio.precio_venta %></td>
         <td><%= repuesto_servicio.categoria %></td>

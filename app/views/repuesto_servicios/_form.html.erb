@@ -40,7 +40,7 @@
 
   <div class="form-group">
     <%= form.label :categoria %>
-    <%= form.collection_select :categoria_id, Categorium.order(:descripcion), :id, :descripcion,class: "chosen-select" %>
+    <%= form.select :categoria, options_for_select([["Stock", "stock"],["Servicio", "servicio"]]), :class => 'form-control' %>
   </div>
 
   <div class="actions">

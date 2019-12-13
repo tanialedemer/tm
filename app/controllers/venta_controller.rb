@@ -4,6 +4,7 @@ class VentaController < ApplicationController
   # GET /venta
   # GET /venta.json
   def index
+    puts params[:q][:created_at_gteq] 
     @venta = Ventum.all
   end
 
